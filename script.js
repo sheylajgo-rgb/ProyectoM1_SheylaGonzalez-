@@ -26,5 +26,7 @@ function generarpaleta (cantidad) {
 estos valores 0 al 5, si son 6 repeticiones 
 3 i ++ esto indica que cada repetición aumenta el contador uno más */
 
-console.log(generarpaleta(6)) // se llama a la función generar paleta, pero con 6 colores
+console.log(generarpaleta(6)); // se llama a la función generar paleta, pero con 6 colores
+console.log(generarpaleta(8));
+console.log(generarpaleta(9));
 
