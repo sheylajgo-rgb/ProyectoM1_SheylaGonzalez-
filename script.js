@@ -9,3 +9,22 @@ l: iluminosidad, que se le asigna el 50%
 */
 }
 console.log(generarcolor());
+//Ahora se crea una función para generar la paleta de colores//
+
+function generarpaleta (cantidad) {
+    const colores= [] // se agrega un array vacía para guardar los arreglos allí
+    for (let i = 0; i < cantidad; i++) { // se hace antes del for para que haya una sola caja de colores 
+        const color= generarcolor(); // se debe conectar ambas funciones (genenrarcolor y generar paleta)
+        colores.push(color); // el push agrega los colores adentro de la caja (se agrega al final del arreglo)
+
+    }
+}
+
+/* nuestra función (generarpaleta) cuenta con 3 instrucciones: 
+1 let i = 0 esta variable comienza de 0
+2 i< cantidad se le dice a JS que i sea menor que la cantidad solicitada, si son 6 colores el contador tendrá 
+estos valores 0 al 5, si son 6 repeticiones 
+3 i ++ esto indica que cada repetición aumenta el contador uno más */
+
+
+
