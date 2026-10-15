@@ -30,3 +30,9 @@ console.log(generarpaleta(6)); // se llama a la función generar paleta, pero co
 console.log(generarpaleta(8));
 console.log(generarpaleta(9));
 
+const resultado= document.getElementById("resultado");
+/* const resultado; se crea una variable llamada resultado
+document representa el documento index.html del proyecto 
+getELementById("resultado"), le dice JS que busque dentro deL html un elemento denominado como resultado
+este caso seria (div class="paletas" id="resultado) que esta dentro del contenedor-paletas */
+
