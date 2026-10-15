@@ -66,11 +66,13 @@ getElementById("generar"); busca el elemento con el id: generar" */
 aqui se combina un método JS (addEventLitener), una función () anonima porque no tiene nomnre 
 y una variable (boton.generar) */
 
+const mesanje=document.getElementById("mensaje"); // esta variable busca el párr asignado para el msj
 botongenerar.addEventListener("click", function() { 
     console.log("el botón funciona");
     const cantidad= Number(document.getElementById("cantidad").value); 
     const formato= document.getElementById("formato").value; 
     const colores= generarpaleta(cantidad, formato);
+    mensaje.textContent= `¡Paleta de ${cantidad} colores generada correctamente!`; // ese será el msj microfeedback
     resultado.innerHTML=""; 
     colores.forEach(function(color) { // se puede usar forEach porque ya tenemos el arreglo arriba con for classic
        const tarjeta= document.createElement("div"); 
