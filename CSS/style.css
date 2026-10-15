@@ -56,7 +56,10 @@ main p {
 }
 .paletas {
     display: flex;
-    gap: 10px;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
 }
 .color {
     flex: 1;
@@ -66,6 +69,7 @@ main p {
 .tarjeta-color {
     width: 100px;
     height: 150px;
+    border-radius: 10px;
 }
 #generar {
     background-color: hsl(300, 59%, 68%);

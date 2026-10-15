@@ -1,7 +1,7 @@
 console.log ("hola mundo") // se comprueba que se entrelazoó el JS con el archivo index.html //
 function generarcolor () {
     const tono= Math.floor (Math.random() * 360) // se agrega la función de generar colores aleatorios de 0 a 360 // 
-return `hsl (${tono}, 70%, 50%)`;  
+return `hsl(${tono}, 70%, 50%)`;  
 /* el return se encuentra con tres caracterítica de la variable hsl: 
 h: el tono del color, que se va generar de forma aletoria con Math.random()
 s: saturación, que esta asigando con un 70%
@@ -30,13 +30,15 @@ console.log(generarpaleta(6)); // se llama a la función generar paleta, pero co
 console.log(generarpaleta(8));
 console.log(generarpaleta(9));
 
-const resultado= document.getElementById("resultado"); // espacio en donde apareceran los colores
+const resultadco= document.getElementById("resultado"); // espacio en donde apareceran los colores
+console.log(resultado);
 /* const resultado; se crea una variable llamada resultado
 document representa el documento index.html del proyecto 
 getELementById("resultado"), le dice JS que busque dentro deL html un elemento denominado como resultado
 este caso seria (div class="paletas" id="resultado) que esta dentro del contenedor-paletas */
 
-const botongenerar= document.getElementById("generar"); // botón para generar las paletas
+const botongenerar= document.getElementById("generar");  // botón para generar las paletas
+console.log(botongenerar);
 /* se crea una otra variable con Const botongenerar, así JS lo podrá identificar en el html
 document; busca dentro del html
 getElementById("generar"); busca el elemento con el id: generar" */
@@ -46,6 +48,7 @@ aqui se combina un método JS (addEventLitener), una función () anonima porque 
 y una variable (boton.generar) */
 
 botongenerar.addEventListener("click", function() { 
+    console.log("el botón funciona");
     const cantidad= Number(document.getElementById("cantidad").value); 
     const colores= generarpaleta(cantidad);
     resultado.innerHTML=""; 
@@ -54,8 +57,10 @@ botongenerar.addEventListener("click", function() {
        tarjeta.classList.add("tarjeta-color"); 
        tarjeta.style.backgroundColor= color; 
        resultado.appendChild(tarjeta); //resultado: contendor html, appendchild: se agg un elemnto dentro de otro
+       console.log("tajeta creada",color);    
     });
 })
+
 /* resultado. innerHTML es para limpiar nuestro resultado (pizarra de colores), 
 para que no se vaya acomulando los colores que se vayan generando en el click anterior,
 por lo tanto el innerHTML, permite consultar o modificar el contenido del HTML,
