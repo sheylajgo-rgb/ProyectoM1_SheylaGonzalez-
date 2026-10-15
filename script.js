@@ -56,6 +56,7 @@ botongenerar.addEventListener("click", function() {
        const tarjeta= document.createElement("div"); 
        tarjeta.classList.add("tarjeta-color"); 
        tarjeta.style.backgroundColor= color; 
+       tarjeta.textContent= color; //escribe el código del color dentro de ella 
        resultado.appendChild(tarjeta); //resultado: contendor html, appendchild: se agg un elemnto dentro de otro
        console.log("tajeta creada",color);    
     });
