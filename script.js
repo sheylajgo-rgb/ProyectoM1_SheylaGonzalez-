@@ -45,12 +45,16 @@ getElementById("generar"); busca el elemento con el id: generar" */
 aqui se combina un método JS (addEventLitener), una función () anonima porque no tiene nomnre 
 y una variable (boton.generar) */
 
-botongenerar.addEventListener("click"), function() { 
+botongenerar.addEventListener("click", function() { 
     const cantidad= Number(document.getElementById("cantidad").value); 
     const colores= generarpaleta(cantidad);
     resultado.innerHTML=""; 
-}
+    colores.forEach(function(color) { 
+
+    });
+})
 /* resultado. innerHTML es para limpiar nuestro resultado (pizarra de colores), 
 para que no se vaya acomulando los colores que se vayan generando en el click anterior,
 por lo tanto el innerHTML, permite consultar o modificar el contenido del HTML,
 "" dejamos ese contenero vacío, como en el caso del array, para que no se desborde */ 
+
