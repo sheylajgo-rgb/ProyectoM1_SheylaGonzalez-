@@ -30,9 +30,15 @@ console.log(generarpaleta(6)); // se llama a la función generar paleta, pero co
 console.log(generarpaleta(8));
 console.log(generarpaleta(9));
 
-const resultado= document.getElementById("resultado");
+const resultado= document.getElementById("resultado"); // espacio en donde apareceran los colores
 /* const resultado; se crea una variable llamada resultado
 document representa el documento index.html del proyecto 
 getELementById("resultado"), le dice JS que busque dentro deL html un elemento denominado como resultado
 este caso seria (div class="paletas" id="resultado) que esta dentro del contenedor-paletas */
+
+const botongenerar= document.getElementById("generar"); // botón para generar las paletas
+/* se crea una otra variable con Const botongenerar, así JS lo podrá identificar en el html
+document; busca dentro del html
+getElementById("generar"); busca el elemento con el id: generar" */
+
 
