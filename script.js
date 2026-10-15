@@ -77,7 +77,7 @@ botongenerar.addEventListener("click", function() {
        tarjeta.classList.add("tarjeta-color"); 
        const muestra= document.createElement("div");
        muestra.classList.add("muestra-color");
-       muestra.style.backgraoundColor= color;
+       muestra.style.backgroundColor= color;
        const codigo= document.createElement("span"); // es una caja liviana y en linea en html
        codigo.textContent= color;
        tarjeta.appendChild(muestra);

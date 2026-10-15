@@ -58,8 +58,9 @@ main p {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
+    row-gap: 45px; /* row (fila) gap (espacio entre filas) */
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 20px; 
 }
 .color {
     flex: 1;
@@ -70,6 +71,16 @@ main p {
     width: 100px;
     height: 150px;
     border-radius: 10px;
+}
+.muestra-color{
+    width: 100%;
+    height: 150px;
+    border-radius: 10px;
+}
+.tarjeta-color span{
+    font-size: 14px;
+    text-align: center;
+    overflow-wrap: anywhere; /* overflow desbordamiento y wrap es para que pase a otra lína */
 }
 #generar {
     background-color: hsl(300, 59%, 68%);

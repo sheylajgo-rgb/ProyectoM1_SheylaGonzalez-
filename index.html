@@ -48,12 +48,11 @@
 
          
          <!-- botón para generar paletas -->
-          <botton id="generar">
-            Generar paleta 
-          </botton>
+          <botton id="generar">Generar paleta</botton>
            <!-- contenderes de las tajetas de colores -->
         <article class="contenedor-paletas"> <!-- article agrupa una tarjeta de paletas de colores y el "contenedor-paletas" señala lo que se encuentra en su interior -->
             <!-- aquí JavaScript generará los colores -->
+            <p id="mensaje" role="status" aria-live="polite"></p> <!-- para agregar el microfeedback-->
             <div class="paletas" id="resultado"> <!-- aqui irá el resultado de JS-->
             </div>
         </article>
