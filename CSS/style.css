@@ -67,3 +67,11 @@ main p {
     width: 100px;
     height: 150px;
 }
+#generar {
+    background-color: hsl(300, 59%, 68%);
+    color: black;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
