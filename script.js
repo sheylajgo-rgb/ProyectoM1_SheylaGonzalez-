@@ -14,7 +14,7 @@ console.log(generarcolor());
 function generarpaleta (cantidad) {
     const colores= [] // se agrega un array vacía para guardar los arreglos allí
     for (let i = 0; i < cantidad; i++) { // se hace antes del for para que haya una sola caja de colores 
-        const color= generarcolor(); // se debe conectar ambas funciones (genenrarcolor y generar paleta)
+        const color= generarcolor(); // se debe conectar ambas funciones (generarcolor y generar paleta)
         colores.push(color); // el push agrega los colores adentro de la caja (se agrega al final del arreglo)
         }
     return colores; // el return va a fuera del for para que entregar la caja cuando se haya guadado todos los colores
