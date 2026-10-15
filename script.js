@@ -69,13 +69,19 @@ y una variable (boton.generar) */
 botongenerar.addEventListener("click", function() { 
     console.log("el botón funciona");
     const cantidad= Number(document.getElementById("cantidad").value); 
-    const colores= generarpaleta(cantidad);
+    const formato= document.getElementById("formato").value; 
+    const colores= generarpaleta(cantidad, formato);
     resultado.innerHTML=""; 
     colores.forEach(function(color) { // se puede usar forEach porque ya tenemos el arreglo arriba con for classic
        const tarjeta= document.createElement("div"); 
        tarjeta.classList.add("tarjeta-color"); 
-       tarjeta.style.backgroundColor= color; 
-       tarjeta.textContent= color; //escribe el código del color dentro de ella 
+       const muestra= document.createElement("div");
+       muestra.classList.add("muestra-color");
+       muestra.style.backgraoundColor= color;
+       const codigo= document.createElement("span"); // es una caja liviana y en linea en html
+       codigo.textContent= color;
+       tarjeta.appendChild(muestra);
+       tarjeta.appendChild(codigo);
        resultado.appendChild(tarjeta); //resultado: contendor html, appendchild: se agg un elemnto dentro de otro
        console.log("tajeta creada",color);    
     });
