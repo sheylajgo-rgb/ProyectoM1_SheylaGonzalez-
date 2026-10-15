@@ -19,12 +19,26 @@ function generarpaleta (cantidad) {
         }
     return colores; // el return va a fuera del for para que entregar la caja cuando se haya guadado todos los colores
 }
-
 /* nuestra función (generarpaleta) cuenta con 3 instrucciones: 
 1 let i = 0 esta variable comienza de 0
 2 i< cantidad se le dice a JS que i sea menor que la cantidad solicitada, si son 6 colores el contador tendrá 
 estos valores 0 al 5, si son 6 repeticiones 
 3 i ++ esto indica que cada repetición aumenta el contador uno más */
+
+function generarHEX(){
+    const numero= Math.floor (Math.random()* 16777216);
+    return "#" + numero.toString(16).padStart(6,"0");
+}
+console.log(generarHEX());
+
+
+/* Math.floor genera nro aleatorios 
+Math.random elimina decimales 
+toString(16) convierte el nro. a formato hexadecimal
+padStart (6, "0") garantiza se tenga 6 caracteres 
+return devuelve el color generado */
+
+
 
 console.log(generarpaleta(6)); // se llama a la función generar paleta, pero con 6 colores
 console.log(generarpaleta(8));
