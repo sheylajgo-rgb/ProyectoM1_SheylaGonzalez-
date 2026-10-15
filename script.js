@@ -11,10 +11,15 @@ l: iluminosidad, que se le asigna el 50%
 console.log(generarcolor());
 //Ahora se crea una función para generar la paleta de colores//
 
-function generarpaleta (cantidad) {
+function generarpaleta(cantidad, formato) {
     const colores= [] // se agrega un array vacía para guardar los arreglos allí
     for (let i = 0; i < cantidad; i++) { // se hace antes del for para que haya una sola caja de colores 
-        const color= generarcolor(); // se debe conectar ambas funciones (generarcolor y generar paleta)
+        let color;
+        if (formato === "hex"){
+            color=generarHEX();
+        } else {
+            color=generarcolor();
+        }
         colores.push(color); // el push agrega los colores adentro de la caja (se agrega al final del arreglo)
         }
     return colores; // el return va a fuera del for para que entregar la caja cuando se haya guadado todos los colores
