@@ -51,6 +51,7 @@ botongenerar.addEventListener("click", function() {
     resultado.innerHTML=""; 
     colores.forEach(function(color) { // se puede usar forEach porque ya tenemos el arreglo arriba con for classic
        const tarjeta= document.createElement("div"); 
+       tarjeta.classList.add("tarjeta-color"); 
        tarjeta.style.backgroundColor= color; 
        resultado.appendChild(tarjeta); //resultado: contendor html, appendchild: se agg un elemnto dentro de otro
     });
@@ -61,3 +62,8 @@ por lo tanto el innerHTML, permite consultar o modificar el contenido del HTML,
 "" dejamos ese contenero vacío, como en el caso del array, para que no se desborde */ 
 /* destro del forEach se crea un metodo con la constante tarjeta para un elemento HTML mediante JS especificando 
 que div (una tarjta) es el tipo de elemento que se quiere crear */ 
+/*tarjeta es el elemento div que se creó; 
+classlist; permite trabajar con la clase CSS;
+.add agrega la clase 
+tajeta-color es el nombre  de la clase que se está asignando;
+este tipo de clase se puede usar ahora en CSS para agregarle estilos, bordes, tamaño, etc. */
