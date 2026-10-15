@@ -41,4 +41,11 @@ const botongenerar= document.getElementById("generar"); // botón para generar l
 document; busca dentro del html
 getElementById("generar"); busca el elemento con el id: generar" */
 
+/* addEventListener; le dice a JS que este atento a lo que usuario hacen ela pag a través deñ click;
+aqui se combina un método JS (addEventLitener), una función () anonima porque no tiene nomnre 
+y una variable (boton.generar) */
 
+botongenerar.addEventListener("click"), function() { 
+    const cantidad= Number(document.getElementById("cantidad").value); 
+    const colores= generarpaleta(cantidad);
+}
