@@ -52,6 +52,7 @@ botongenerar.addEventListener("click", function() {
     colores.forEach(function(color) { // se puede usar forEach porque ya tenemos el arreglo arriba con for classic
        const tarjeta= document.createElement("div"); 
        tarjeta.style.backgroundColor= color; 
+       resultado.appendChild(tarjeta); //resultado: contendor html, appendchild: se agg un elemnto dentro de otro
     });
 })
 /* resultado. innerHTML es para limpiar nuestro resultado (pizarra de colores), 
