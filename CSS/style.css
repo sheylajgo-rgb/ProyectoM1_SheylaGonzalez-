@@ -79,3 +79,6 @@ main p {
     border-radius: 8px;
     cursor: pointer;
 }
+label[for="formato"]{
+    margin-left: 25px;
+}
