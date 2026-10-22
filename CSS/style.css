@@ -99,7 +99,8 @@ label[for="formato"]{
     color:hsl(240, 95%, 5%);
     border: 1px solid #5c1953;
     border-radius: 8px;
-    padding: 12px; 
+    width: fit-content; /* ajusta el ancho de la caja al contenido */
+    padding: 8px 12px; 
     margin: 16px auto;
 }
 /* la caja con el msj queda oculta mientras no se active el botón */
