@@ -84,7 +84,7 @@ function crearTarjeta(color){
     const botonAnclar= document.createElement("button");
     botonAnclar.type= "button";
     botonAnclar.textContent= "Anclar";
-    botonAnclar.classList.add("boton.anclar");
+    botonAnclar.classList.add("boton-anclar");
 
     botonAnclar.setAttribute("aria-pressed", "false"); // cuando esta libre de anclar va a marcar fase
     botonAnclar.addEventListener("click", () => {
@@ -107,7 +107,7 @@ botongenerar.addEventListener("click", function() {
     });
     if (ancladaFuera){
         mensaje.textContent= 
-        "Desancla las útltimas tajetas antes de reducir la cantidad.";
+        "Desancla las útltimas tarjetas antes de reducir la cantidad.";
         return;
     }
     const colores= generarpaleta(cantidad, formato);
