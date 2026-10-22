@@ -67,6 +67,7 @@ aqui se combina un método JS (addEventLitener), una función () anonima porque 
 y una variable (boton.generar) */
 
 const mensaje=document.getElementById("mensaje"); // esta variable busca el párr asignado para el msj
+
 function crearTarjeta(color){
     const tarjeta= document.createElement("div");
     tarjeta.classList.add("tarjeta-color");
@@ -79,6 +80,19 @@ function crearTarjeta(color){
     codigo.textContent= color;
     tarjeta.appendChild(muestra);
     tarjeta.appendChild(codigo);
+
+    const botonAnclar= document.createElement("button");
+    botonAnclar.type= "button";
+    botonAnclar.textContent= "Anclar";
+    botonAnclar.classList.add("boton.anclar");
+
+    botonAnclar.setAttribute("aria-pressed, false"); // cuando esta libre de anclar va a marcar fase
+    botonAnclar.addEventListener("click", () => {
+        const anclada= tarjeta.classList.toggle("anclada"); // toggle agg esa clase a la tarjeta, al pusar de nuevo se desactiva
+        botonAnclar.textContent= anclada? "Desannclar": "anclar"; // ? elige el texto según el estado
+        botonAnclar.setAttribute("aria-pressed", String(anclada)); // aria-pressed comunica el estado a los lectores de pantalla 
+    })
+    tarjeta.appendChild(botonAnclar);
     return tarjeta;
 }
 
@@ -98,10 +112,8 @@ botongenerar.addEventListener("click", function() {
 /* resultado. innerHTML es para limpiar nuestro resultado (pizarra de colores), 
 para que no se vaya acomulando los colores que se vayan generando en el click anterior,
 por lo tanto el innerHTML, permite consultar o modificar el contenido del HTML,
-"" dejamos ese contenero vacío, como en el caso del array, para que no se desborde */ 
-/* destro del forEach se crea un metodo con la constante tarjeta para un elemento HTML mediante JS especificando 
-que div (una tarjta) es el tipo de elemento que se quiere crear */ 
-/*tarjeta es el elemento div que se creó; 
+ dejamos ese contenero vacío, como en el caso del array, para que no se desborde */  
+/*tarjeta, muestra y colores  es el elemento div que se creó; 
 classlist; permite trabajar con la clase CSS;
 .add agrega la clase 
 tajeta-color es el nombre  de la clase que se está asignando;

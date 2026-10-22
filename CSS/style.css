@@ -140,3 +140,8 @@ label[for="formato"]{
     }
 
 }
+
+.tarjeta-color.anclada{
+    outline: 3px solid #5c1953;
+    outline-offset: 4px;
+}
