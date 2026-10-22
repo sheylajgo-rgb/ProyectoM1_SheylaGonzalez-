@@ -86,10 +86,10 @@ function crearTarjeta(color){
     botonAnclar.textContent= "Anclar";
     botonAnclar.classList.add("boton.anclar");
 
-    botonAnclar.setAttribute("aria-pressed, false"); // cuando esta libre de anclar va a marcar fase
+    botonAnclar.setAttribute("aria-pressed", "false"); // cuando esta libre de anclar va a marcar fase
     botonAnclar.addEventListener("click", () => {
         const anclada= tarjeta.classList.toggle("anclada"); // toggle agg esa clase a la tarjeta, al pusar de nuevo se desactiva
-        botonAnclar.textContent= anclada? "Desannclar": "anclar"; // ? elige el texto según el estado
+        botonAnclar.textContent= anclada? "Desanclar": "anclar"; // ? elige el texto según el estado
         botonAnclar.setAttribute("aria-pressed", String(anclada)); // aria-pressed comunica el estado a los lectores de pantalla 
     })
     tarjeta.appendChild(botonAnclar);
@@ -100,12 +100,27 @@ botongenerar.addEventListener("click", function() {
     console.log("el botón funciona");
     const cantidad= Number(document.getElementById("cantidad").value); 
     const formato= document.getElementById("formato").value; 
+    const tarjetasAnteriores= Array.from(resultado.children);
+    const ancladaFuera= tarjetasAnteriores.some ((tarjeta, indice) =>{
+        return indice >= cantidad && 
+        tarjeta.classList.contains("anclada");
+    });
+    if (ancladaFuera){
+        mensaje.textContent= 
+        "Desancla las útltimas tajetas antes de reducir la cantidad.";
+        return;
+    }
     const colores= generarpaleta(cantidad, formato);
     mensaje.textContent= `¡Paleta de ${cantidad} colores generada correctamente!`; // ese será el msj microfeedback
     resultado.innerHTML=""; 
-    colores.forEach((color) => { // la función flecha el mismo codigo crea cada tarjeta
+    colores.forEach((color, indice) => { // la función flecha el mismo codigo crea cada tarjeta
+       const anterior= tarjetasAnteriores[indice];
+       if (anterior && anterior.classList.contains("anclada")){
+        resultado.appendChild(anterior);
+       } else {
        const tarjeta= crearTarjeta(color);
-       resultado.appendChild(tarjeta);  
+       resultado.appendChild(tarjeta);
+       }        
     });
 })
 
