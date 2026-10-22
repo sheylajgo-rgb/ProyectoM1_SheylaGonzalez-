@@ -107,3 +107,36 @@ label[for="formato"]{
 #mensaje:empty{
     display: none;
 }
+
+.controles-paletas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin: 24px auto;
+}
+
+@media (max-width: 600px){
+    .controles-paletas {
+        display: flex;
+        flex-direction: column;  
+        align-items: stretch;
+        gap: 12px;
+        max-width: 320px;
+        margin: 20px auto;
+        padding: 0 16px;
+    }
+    .controles-paletas label,
+    .controles-paletas select,
+    .controles-paletas button {
+        margin: 0;
+    }
+
+    .controles-paletas select,
+    .controles-paletas button{
+        padding: 10px;
+        font-size: 16px;
+    }
+
+}
