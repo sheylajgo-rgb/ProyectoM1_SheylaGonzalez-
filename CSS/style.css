@@ -58,7 +58,7 @@ main p {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
-    row-gap: 45px; /* row (fila) gap (espacio entre filas) */
+    row-gap: 32px; /* row (fila) gap (espacio entre filas) */
     justify-content: center;
     margin-top: 20px; 
 }
@@ -69,12 +69,16 @@ main p {
 }
 .tarjeta-color {
     width: 100px;
-    height: 150px;
+    height: auto;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 .muestra-color{
     width: 100%;
     height: 150px;
+    flex-shrink: 0;
     border-radius: 10px;
 }
 .tarjeta-color span{
@@ -140,8 +144,19 @@ label[for="formato"]{
     }
 
 }
+.tarjeta-color {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
 
-.tarjeta-color.anclada{
+.tarjeta-color .boton-anclar{
+    display: block;
+    margin: 8px auto 0;
+}
+
+.tarjeta-color.anclada .muestra-color{
     outline: 3px solid #5c1953;
-    outline-offset: 4px;
+    outline-offset: -3px;
 }
