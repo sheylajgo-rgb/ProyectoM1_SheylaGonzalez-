@@ -100,7 +100,7 @@ label[for="formato"]{
     border: 1px solid #5c1953;
     border-radius: 8px;
     padding: 12px; 
-    margin-bottom: 16px;
+    margin-bottom: 8px;
 }
 /* la caja con el msj queda oculta mientras no se active el botón */
 #mensaje:empty{
