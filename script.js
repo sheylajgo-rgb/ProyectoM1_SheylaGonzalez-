@@ -67,6 +67,21 @@ aqui se combina un método JS (addEventLitener), una función () anonima porque 
 y una variable (boton.generar) */
 
 const mensaje=document.getElementById("mensaje"); // esta variable busca el párr asignado para el msj
+function crearTarjeta(color){
+    const tarjeta= document.createElement("div");
+    tarjeta.classList.add("tarjeta-color");
+
+    const muestra= document.createElement("div");
+    muestra.classList.add("muestra-color");
+    muestra.style.backgroundColor= color;
+
+    const codigo= document.createElement("span");
+    codigo.textContent= color;
+    tarjeta.appendChild(muestra);
+    tarjeta.appendChild(codigo);
+    return tarjeta;
+}
+
 botongenerar.addEventListener("click", function() { 
     console.log("el botón funciona");
     const cantidad= Number(document.getElementById("cantidad").value); 
@@ -74,18 +89,9 @@ botongenerar.addEventListener("click", function() {
     const colores= generarpaleta(cantidad, formato);
     mensaje.textContent= `¡Paleta de ${cantidad} colores generada correctamente!`; // ese será el msj microfeedback
     resultado.innerHTML=""; 
-    colores.forEach(function(color) { // se puede usar forEach porque ya tenemos el arreglo arriba con for classic
-       const tarjeta= document.createElement("div"); 
-       tarjeta.classList.add("tarjeta-color"); 
-       const muestra= document.createElement("div");
-       muestra.classList.add("muestra-color");
-       muestra.style.backgroundColor= color;
-       const codigo= document.createElement("span"); // es una caja liviana y en linea en html
-       codigo.textContent= color;
-       tarjeta.appendChild(muestra);
-       tarjeta.appendChild(codigo);
-       resultado.appendChild(tarjeta); //resultado: contendor html, appendchild: se agg un elemnto dentro de otro
-       console.log("tajeta creada",color);    
+    colores.forEach((color) => { // la función flecha el mismo codigo crea cada tarjeta
+       const tarjeta= crearTarjeta(color);
+       resultado.appendChild(tarjeta);  
     });
 })
 
