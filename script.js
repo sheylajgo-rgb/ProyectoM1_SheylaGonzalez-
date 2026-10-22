@@ -66,7 +66,7 @@ getElementById("generar"); busca el elemento con el id: generar" */
 aqui se combina un método JS (addEventLitener), una función () anonima porque no tiene nomnre 
 y una variable (boton.generar) */
 
-const mesanje=document.getElementById("mensaje"); // esta variable busca el párr asignado para el msj
+const mensaje=document.getElementById("mensaje"); // esta variable busca el párr asignado para el msj
 botongenerar.addEventListener("click", function() { 
     console.log("el botón funciona");
     const cantidad= Number(document.getElementById("cantidad").value); 
