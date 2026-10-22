@@ -93,3 +93,16 @@ main p {
 label[for="formato"]{
     margin-left: 25px;
 }
+
+#mensaje {
+    background-color:hsl(298, 27%, 83%) ;
+    color:hsl(240, 95%, 5%);
+    border: 1px solid #1b5e20;
+    border-radius: 8px;
+    padding: 12px; 
+    margin-bottom: 16px;
+}
+/* la caja con el msj queda oculta mientras no se active el botón */
+#mensaje:empty{
+    display: none;
+}
