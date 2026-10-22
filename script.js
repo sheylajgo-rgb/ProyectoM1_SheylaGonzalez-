@@ -49,7 +49,7 @@ console.log(generarpaleta(6)); // se llama a la función generar paleta, pero co
 console.log(generarpaleta(8));
 console.log(generarpaleta(9));
 
-const resultadco= document.getElementById("resultado"); // espacio en donde apareceran los colores
+const resultado= document.getElementById("resultado"); // espacio en donde apareceran los colores
 console.log(resultado);
 /* const resultado; se crea una variable llamada resultado
 document representa el documento index.html del proyecto 
