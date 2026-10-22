@@ -95,9 +95,9 @@ label[for="formato"]{
 }
 
 #mensaje {
-    background-color:hsl(145, 87%, 57%) ;
+    background-color:hsla(56, 86%, 71%, 0.89) ;
     color:hsl(240, 95%, 5%);
-    border: 1px solid #1b5e20;
+    border: 1px solid #776227;
     border-radius: 8px;
     padding: 12px; 
     margin-bottom: 16px;
