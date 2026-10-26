@@ -188,7 +188,7 @@ label[for="formato"]{
     transform: translateY(-2px);
 }
 
-/* Habilita la opción de transción del tamaño del btn el tlf en caso de que lo tengan bloqueado */
+/* desactiva el movimiento para quienes tienen activada la opción de reducir animaciones en su tlf*/
 @media (prefers-reduced-motion: reduce) {
     #generar,
     .boton-anclar {
