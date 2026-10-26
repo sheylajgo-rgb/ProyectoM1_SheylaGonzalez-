@@ -63,62 +63,72 @@ Así sucesivamente hasta que creas tu paleta de color perfecta a tu gusto o util
 
 ## Ayuda con de Inteligencia Artificial 
 
-### Consulta 1
-**Prompt utlizado:** 
-Necesito de tu ayuda, sabes que quiero colocar en el header obviamente el título de la página y una pequeña introducción, que sería como bienvenidos al Colorfly Studio, somos una agencia Brandy de productos propuestos visi-ble por más de 300 clientes de distintas ciudades. Te invitamos a explorar nuestra colección de paleta de colores. Y abajo, se ve la lista donde se ve como un link de referencia de li- de inicio y de paletas. Pero cuando lo veo mi en mi proyecto, o sea en la página como tal, se ve distorsionado, porque obviamente se ven los párrafos y abajo de los párrafos el link de inicio y de paleta. Entonces, ¿qué me recomiendas tú? ¿mudar los párrafos de introducción posterior del header y subir los los nav de los links del inicio de paleta
-[respuesta del prompt 1](img/IA/consulta-header-ia.png)
+### reoganización y diseño de la página
+  ### Consulta 1
+  **Prompt utlizado:** 
+  Necesito de tu ayuda, sabes que quiero colocar en el header obviamente el título de la página y una pequeña introducción, que sería como bienvenidos al Colorfly Studio, somos una agencia Brandy de productos propuestos visi-ble por más de 300 clientes de distintas ciudades. Te invitamos a explorar nuestra colección de paleta de colores. Y abajo, se ve la lista donde se ve como un link de referencia de li- de inicio y de paletas. Pero cuando lo veo mi en mi proyecto, o sea en la página como tal, se ve distorsionado, porque obviamente se ven los párrafos y abajo de los párrafos el link de inicio y de paleta. Entonces, ¿qué me recomiendas tú? ¿mudar los párrafos de introducción posterior del header y subir los los nav de los links del inicio de paleta
+  [respuesta del prompt 1](img/IA/consulta-header-ia.png)
 
-### Consulta 2
+  ### guia semanal con IA 
+  **Prompt utilizado:**
+  Cada semana, guíame paso a paso para avanzar en mi proyecto web Colorfly Studio con HTML, CSS y JavaScript no uses fetxh, ni librería externas solo JS básico. Usa mi checklist pendiente: terminar el mensaje de confirmación, revisar la accesibilidad de forma sencilla (recuerda que soy principiante) , probar el diseño y publicar en GitHub. Propón una tarea pequeña y alcanzable, explícame cómo implementarla y cómo comprobar que funciona. No asumas que completé tareas sin confirmarlo.
+  [respuesta del Prompt guia semanal](img/IA/guía-semanal-ia.png)
+ 
+  ### Consulta 2 
+  **Prompt utilizado:**
+  ¿puedes sacar una duda en un proyecto anterior para colocar el botón, colocar un botón class en vez de botón ID?
+  [respuesta del prompt 2](img/IA/consulta-btn.png)
+
+  ### Consulta 3
+  **Prompt utilizado:**
+  Una pregunta ¿siempre se tiene que hacer la inserción o insertar el JavaScript después del cierre del main y antes del cierre del body? Siempre siempre hay que hacer eso en el Index HTML
+  [respuesta del prompt 3](img/IA/consulta-script.png)
+
+  ### consulta 4
+ **Prompt utilizado:**
+ Estoy prensentando problemas para que se refleje los cambios de color en la caja del mensaje
+ [respuesra del prompt 4](img/IA/problema-cambio-color.png)
+ 
+  ### consulta 5
+  **Prompt utilizado:**
+  Me puedes ayudar? quiero que el margen del botón de confirmación, o sea del mensaje, quede más pequeño, más ajustado al tamaño de la oración.
+  [respuesta del propmt 5](img/IA/margen-btn.png)
+  
+  ### consulta 6
+  **Prompt utilizado:**
+  igual quiero modificar la proporción que se ve en pantalla de teléfono, porque allí se distorsiona la distancia entre los botones. ¿Cómo se podría hacer eso?
+  [respuesta del prompt 6](img/IA/consulta-pantalla-pequeña.png)
+ 
+  ### consulta 7
+  **Prompt utilizado**
+  Tengo un problema. Si me dejas seleccionar los colores con la tabulación, al igual que el formato, pero para generar la paleta no, me salta a otra parte de la página
+  [respuesta del prompt 7](img/IA/tabulación-btn.png)
+
+### Generación de colores 
+### Consulta 8
 **Prompt utilizado:**
 ¿Cuál es de las dos opciones para usarlo en background de los colores? Es que tengo dos opciones para el proyecto. El RGB y el HSL. ¿Cuál considerarías que es mejor para hacer la paleta?. Me dieron dos opciones para hacer o estructurar la paleta de colores. qué es RGB y HSL ¿Cuál es de las dos es mejor?
-[respuesta del prompt 2](img/IA/consulta-HSL-RGB.png)
+[respuesta del prompt 8](img/IA/consulta-HSL-RGB.png)
 
-### Consulta 3 
-**Prompt utilizado:**
-¿puedes sacar una duda en un proyecto anterior para colocar el botón, colocar un botón class en vez de botón ID?
-[respuesta del prompt 3](img/IA/consulta-btn.png)
+### Consultas sobre conceptos, métodos y funciones 
+  ## Consulta 9
+  **Prompt utilizado:**
+  ¿Puedes explicar con palabras claras y sencilla lo que significaría,  Para qué sirve el Return en, como la funciones?
+  [respuesta del prompt 9](img/IA/consulta-return.png)
 
-### Consulta 4
-**Prompt utilizado:**
-Una pregunta ¿siempre se tiene que hacer la inserción o insertar el JavaScript después del cierre del main y antes del cierre del body? Siempre siempre hay que hacer eso en el Index HTML
-[respuesta del prompt 4](img/IA/consulta-script.png)
+ ### consulta 10
+  **Prompt utilizado:**
+  Me puedes explicar de forma más didáctica el método for each en la función 
+  [respuesta del prompt 10](img/IA/consulta-metodo-forEach.png)
 
-### Consulta 5
-**Prompt utilizado:**
-¿Puedes explicar con palabras claras y sencilla lo que significaría,  Para qué sirve el Return en, como la funciones?
-[respuesta del prompt 5](img/IA/consulta-return.png)
+ ### consulta 11
+  **Prompt utilizado:**
+  Me puedes explicar cómo funciona el Math random
+  [respuesta del prompt 11](img/IA/consulta-Math-random.png)
 
-### consulta 6
-**Prompt utilizado:**
-Me puedes explicar de forma más didáctica el método for each en la función 
-[respuesta del prompt 6](img/IA/consulta-metodo-forEach.png)
 
-### consulta 7
-**Prompt utilizado:**
-Me puedes explicar cómo funciona el Math random
-[respuesta del prompt 7](img/IA/consulta-Math-random.png)
 
-### guia semanal con IA 
-**Prompt utilizado:**
-Cada semana, guíame paso a paso para avanzar en mi proyecto web Colorfly Studio con HTML, CSS y JavaScript no uses fetxh, ni librería externas solo JS básico. Usa mi checklist pendiente: terminar el mensaje de confirmación, revisar la accesibilidad de forma sencilla (recuerda que soy principiante) , probar el diseño y publicar en GitHub. Propón una tarea pequeña y alcanzable, explícame cómo implementarla y cómo comprobar que funciona. No asumas que completé tareas sin confirmarlo.
-[respuesta del Prompt guia semanal](img/IA/guía-semanal-ia.png)
- 
-### consulta 8
-**Prompt utilizado:**
-Estoy prensetando problemas para que se refleje los cambios de color en la caja del mensaje
-[respuesra del prompt 8](img/IA/problema-cambio-color.png)
 
-### consulta 9
-**Prompt utilizado:**
-Me puedes ayudar? quiero que el margen del botón de confirmación, o sea del mensaje, quede más pequeño, más ajustado al tamaño de la oración.
-[respuesta del propmt 9](img/IA/margen-btn.png)
 
-### consulta 10
-**Prompt utilizado:**
-igual quiero modificar la proporción que se ve en pantalla de teléfono, porque allí se distorsiona la distancia entre los botones. ¿Cómo se podría hacer eso?
-[respuesta del prompt 10](img/IA/consulta-pantalla-pequeña.png)
 
-### consulta 11
-**Prompt utilizado**
-Tengo un problema. Si me dejas seleccionar los colores con la tabulación, al igual que el formato, pero para generar la paleta no, me salta a otra parte de la página
-[respuesta del prompt 11](img/IA/tabulación-btn.png)
+

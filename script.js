@@ -78,6 +78,7 @@ function crearTarjeta(color){
 
     const codigo= document.createElement("span");
     codigo.textContent= color;
+    codigo.classList.add("codigo-color");
     tarjeta.appendChild(muestra);
     tarjeta.appendChild(codigo);
 
