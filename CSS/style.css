@@ -176,3 +176,23 @@ label[for="formato"]{
     padding: 4px 8px;
     border-radius: 4px;
 }
+/* movimientos suaves en los botones */
+#generar,
+.boton-anclar{ 
+    transition: transform 0.2s ease;
+}
+
+/* Se elevan ligeramente al pasar el cursor */
+#generar:hover,
+.boton-anclar:hover {
+    transform: translateY(-2px);
+}
+
+/* Habilita la opción de transción del tamaño del btn el tlf en caso de que lo tengan bloqueado */
+@media (prefers-reduced-motion: reduce) {
+    #generar,
+    .boton-anclar {
+        transition: none;
+        transform: none;
+    }
+}
