@@ -8,7 +8,6 @@ s: saturación, que esta asigando con un 70%
 l: iluminosidad, que se le asigna el 50%
 */
 }
-console.log(generarcolor());
 //Ahora se crea una función para generar la paleta de colores//
 
 function generarpaleta(cantidad, formato) {
@@ -34,21 +33,12 @@ function generarHEX(){
     const numero= Math.floor (Math.random()* 16777216);
     return "#" + numero.toString(16).padStart(6,"0");
 }
-console.log(generarHEX());
-
 
 /* Math.floor genera nro aleatorios 
 Math.random elimina decimales 
 toString(16) convierte el nro. a formato hexadecimal
 padStart (6, "0") garantiza se tenga 6 caracteres 
 return devuelve el color generado */
-
-
-
-console.log(generarpaleta(6)); // se llama a la función generar paleta, pero con 6 colores
-console.log(generarpaleta(8));
-console.log(generarpaleta(9));
-
 const resultado= document.getElementById("resultado"); // espacio en donde apareceran los colores
 console.log(resultado);
 /* const resultado; se crea una variable llamada resultado
@@ -97,8 +87,7 @@ function crearTarjeta(color){
     return tarjeta;
 }
 
-botongenerar.addEventListener("click", function() { 
-    console.log("el botón funciona");
+function mostrarPaletaInicialOGenerar() { 
     const cantidad= Number(document.getElementById("cantidad").value); 
     const formato= document.getElementById("formato").value; 
     const tarjetasAnteriores= Array.from(resultado.children);
@@ -123,7 +112,12 @@ botongenerar.addEventListener("click", function() {
        resultado.appendChild(tarjeta);
        }        
     });
-})
+}
+// Ejecuta la función cuando haces clic en el botón.
+botongenerar.addEventListener("click", mostrarPaletaInicialOGenerar);
+
+// Ejecuta la función una vez al cargar la página.
+mostrarPaletaInicialOGenerar();
 
 /* resultado. innerHTML es para limpiar nuestro resultado (pizarra de colores), 
 para que no se vaya acomulando los colores que se vayan generando en el click anterior,
