@@ -14,28 +14,19 @@ body {
 header {
     display: flex;
     flex-direction: row;
-    justify-content: space-between; /* envía el título hacia la izquierda y el menú de inicio a la derecha */
+    justify-content: center;
     align-items: center; /* alinea ambos contenido al centro */
     padding: 20px; /* agrega espacio interior, para que no quede pegados al borde */
     color: hsl(240, 95%, 5%);
+    border-bottom: 2px solid #3df3f3af;
     background-color: hsl(298, 27%, 83%); /* coloca el fondo de un color determinado */
+   
 }
 header h1 {
     margin: 0;
     color: hsl(240, 95%, 5%);
 }
-nav ul {
-    display: flex; /* coloca los elementos en fila */
-    gap: 30px; /* el gap separa inicio y paletas */
-    list-style: none; /* elimina los puntos de la lista */
-    margin: 0;
-    padding: 0;
-}
-nav a {
-    text-decoration: none; /* elimina el subrayado de la lista */
-    color: hsl(240, 95%, 5%);
-    font-size: 18px;
-}
+
 main {
     text-align: center; /* se alinieo todo la bienvenida al centro */
     padding: 20px 20px;
@@ -195,4 +186,42 @@ label[for="formato"]{
         transition: none;
         transform: none;
     }
+}
+.footer{
+    margin-top: 50px;
+    padding: 25px 20px;
+    border-top: 1px solid #3df3f3af;
+    background-color:hsl(298, 27%, 83%);
+    text-align: center;
+}
+
+.footer p {
+    margin: 8px 0;
+}
+
+.footer-nombre {
+    font-weight: bold;
+}
+
+.footer nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 15px 0;
+}
+/* color: inherit; herada el color del padre, es decir del footer */
+.footer a {
+    color: inherit; 
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.footer a:hover {
+    text-decoration-thickness: 2px;
+}
+
+.footer a:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
 }
