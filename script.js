@@ -40,14 +40,13 @@ toString(16) convierte el nro. a formato hexadecimal
 padStart (6, "0") garantiza se tenga 6 caracteres 
 return devuelve el color generado */
 const resultado= document.getElementById("resultado"); // espacio en donde apareceran los colores
-console.log(resultado);
+
 /* const resultado; se crea una variable llamada resultado
 document representa el documento index.html del proyecto 
 getELementById("resultado"), le dice JS que busque dentro deL html un elemento denominado como resultado
 este caso seria (div class="paletas" id="resultado) que esta dentro del contenedor-paletas */
 
 const botongenerar= document.getElementById("generar");  // botón para generar las paletas
-console.log(botongenerar);
 /* se crea una otra variable con Const botongenerar, así JS lo podrá identificar en el html
 document; busca dentro del html
 getElementById("generar"); busca el elemento con el id: generar" */
@@ -113,6 +112,7 @@ function mostrarPaletaInicialOGenerar() {
        }        
     });
 }
+
 // Ejecuta la función cuando haces clic en el botón.
 botongenerar.addEventListener("click", mostrarPaletaInicialOGenerar);
 
@@ -128,3 +128,36 @@ classlist; permite trabajar con la clase CSS;
 .add agrega la clase 
 tajeta-color es el nombre  de la clase que se está asignando;
 este tipo de clase se puede usar ahora en CSS para agregarle estilos, bordes, tamaño, etc. */
+
+// se agrega la fucnión de generar nueva cantidad de colores, sin perder el paleta genarada
+const selectorCantidad= document.getElementById("cantidad"); /* se llama el elemento cantidad y se guarda en el selectorCantidad */
+
+selectorCantidad.addEventListener("change", function(){ /* evento que detecta en cambio de cantidad */
+    const cantidad= Number(selectorCantidad.value); /*consulta por el nro y entrega el nro seleccionado por el cliente */
+    const formato= document.getElementById("formato").value; /* consulta sobre el formato seleccionado */
+    const tarjetasActuales= Array.from(resultado.children); /* resultado.children obtiene las tarjetas que ya están dentro del contenedor. Array.from() las convierte en un arreglo para poder revisarlas con métodos como .some().*/
+
+    // comprobar si quiere eliminar un color o tajerta anclada
+    const ancladaFuera= tarjetasActuales.some((tarjeta, indice)=>{ /* some comprueba si se cumple las 2 condicones; esta fuera de la cantidad que se quiere conserva y si está anclada */
+        return indice >= cantidad && /* la && significa que ambas condiciones deben cumplirse */
+            tarjeta.classList.contains("anclada");
+    })
+
+    if(ancladaFuera){ /* aviso */
+        mensaje.textContent= "Desancla las últimas tarjetas antes de reducir la cantidad";
+        selectorCantidad.value = String(tarjetasActuales.length);
+        return;
+    }
+ // agregar solo los colores faltantes de la nueva cantidad seleccionada
+
+    while (resultado.children.length < cantidad){
+        const color = formato === "hex" ? generarHEX(): generarcolor(); /* Es una forma corta de decir: “Si el formato es HEX, usa generarHEX(); si no, usa generarcolor()”.*/
+        const tarjeta = crearTarjeta(color);
+        resultado.appendChild(tarjeta);
+    }
+// Quita tarjeta al final si reduce la cantidad 
+    while (resultado.children.length > cantidad){ /* Mientras haya más tarjetas que la cantidad seleccionada, elimina la última.*/
+        resultado.lastElementChild.remove();
+    }
+
+});
