@@ -104,6 +104,10 @@ Así sucesivamente hasta que creas tu paleta de color perfecta a tu gusto o util
   Tengo un problema. Si me dejas seleccionar los colores con la tabulación, al igual que el formato, pero para generar la paleta no, me salta a otra parte de la página
   [respuesta del prompt 7](img/IA/tabulación-btn.png)
 
+  ### consulta 8 
+  **Prompt utilizado**
+[respuesta del prompt 8](img/IA/footer.png)
+
 ### Generación de colores 
 ### Consulta 8
 **Prompt utilizado:**
