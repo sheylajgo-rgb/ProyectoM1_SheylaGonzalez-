@@ -106,7 +106,18 @@ Así sucesivamente hasta que creas tu paleta de color perfecta a tu gusto o util
 
   ### consulta 8 
   **Prompt utilizado**
-[respuesta del prompt 8](img/IA/footer.png)
+  Quiero agregar un footer a la pagina con mi información profesional, como mi usuario de GitHub, correo electronico, me puede ayudar hacerlo de una  forma organizada?
+ [respuesta del prompt 8](img/IA/footer.png)
+
+ ### consulta 9 
+ **Prompt utilizado**
+ Me ayudas a realizar una reestructura la proyecto: 
+  1. Quiero que al cargar la pagina se visualice una paleta de colores por the foult, puede ser de 6 colores
+  2. Quiero que al agregar nuevas cantidades de colores, pero que se mantenga la primera paleta de color generada y que solo se agrega los colores adiciones según la cantidad seleccionada
+  3. Quiero que al cambiar de formato solo se cambie los codigo de color, pero se mantega la paleta generada
+  4. El mensaje de microfeedback solo se visualice por un determinado tiempo
+  5. posterios a estos cambios podemos continuar con la configuraciones de los botones de guardar paleta y recuperar paleta
+ [respuesta del prompt 9](img/IA/reestructura-pag.png)
 
 ### Generación de colores 
 ### Consulta 8
