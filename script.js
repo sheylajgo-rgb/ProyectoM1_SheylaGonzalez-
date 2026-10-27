@@ -1,4 +1,40 @@
 console.log ("hola mundo") // se comprueba que se entrelazoó el JS con el archivo index.html //
+let paletaActual=[]; // Este arreglo será donde conservaremos los colores y su estado de anclaje
+function crearDatosColor(){ // se obtiene un objeto: un conjunto de datos que describe un color
+    return{
+        tono: Math.floor(Math.random() * 360),
+        saturacion: 70,
+        luminosidad: 50,
+        anclado: false
+    }
+}
+function obtenerHSL(color){
+    return `hsl(${color.tono}, {color.saturación}%, {color.luminosidad}%)`; 
+}
+/* color.tono significa: “lee la propiedad tono del objeto color”. Lo mismo ocurre con la saturación y la luminosidad.*/
+
+function obtenerHEX(color){ // se prepara los valores, expresando en grados,
+    const s= color.saturacion/100; // se divide los porcentajes entre 100 porque la fórmula trabaja con valores de 0 a 1
+    const h= color.tono;
+    const l= color.luminosidad/100;
+
+    const a= s* Math.min(1,1 - 1); // Math.min() elige el menor de los valores. 
+    function convertirCanal(n){ //a determina cuánto pueden alejarse los componentes rojo, verde y azul de la luminosidad base.
+        const k= (n + h/ 30)%12;
+        const canal= 1 - a * Math.max( // Un canal es la cantidad de rojo, verde o azul que compone el color
+            -1,                       // Math.max Calcular la intensidad de ese canal
+            Math.min(k- 3,9 -k,1)
+        ); 
+        return Math.round(canal * 255)
+        .toString(16)
+        .toString(2, "0");
+    }
+        return "#" + convertirCanal(0)
+        + convertirCanal(8)
+        + convertirCanal(4);
+    } 
+    // contiene la fórmula matemática de conversión. No genera otro color aleatorio: calcula el HEX correspondiente al HSL guardado
+
 function generarcolor () {
     const tono= Math.floor (Math.random() * 360) // se agrega la función de generar colores aleatorios de 0 a 360 // 
 return `hsl(${tono}, 70%, 50%)`;  
@@ -161,3 +197,4 @@ selectorCantidad.addEventListener("change", function(){ /* evento que detecta en
     }
 
 });
+
