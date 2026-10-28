@@ -91,8 +91,17 @@ getElementById("generar"); busca el elemento con el id: generar" */
 aqui se combina un método JS (addEventLitener), una función () anonima porque no tiene nomnre 
 y una variable (boton.generar) */
 
-const mensaje=document.getElementById("mensaje"); // esta variable busca el párr asignado para el msj
+const mensaje=document.getElementById("mensaje");   // esta variable busca el párr asignado para el msj
+ let temporizadorMensaje;
+ function mostrarMensaje(texto){
+    clearTimeout(temporizadorMensaje);
 
+    mensaje.textContent=texto;
+
+    temporizadorMensaje=setTimeout(function(){
+        mensaje.textContent="";
+    },3000);
+ }
 
 function crearTarjeta(color){
     const tarjeta= document.createElement("div");
@@ -148,8 +157,7 @@ botongenerar.addEventListener("click", function() {
 
     mostrarPaleta();
 
-    mensaje.textContent =
-        `¡Paleta de ${paletaActual.length} colores generada correctamente!`;
+    mostrarMensaje(`¡Paleta de ${paletaActual.length} colores generada correctamente!`);
 });
 
 selectorCantidad.addEventListener("change", function() {
@@ -160,9 +168,7 @@ selectorCantidad.addEventListener("change", function() {
     });
 
     if (ancladaFuera) {
-        mensaje.textContent =
-            "Desancla las últimas tarjetas antes de reducir la cantidad.";
-
+        mostrarMensaje("Desancla las últimas tarjetas antes de reducir la cantidad.");
         selectorCantidad.value = String(paletaActual.length);
         return;
     }
@@ -208,9 +214,9 @@ botonGuardar.addEventListener("click", function(){ // detecta el click y cumple 
 
     try{ // try significa trata de ejecutar estas intrucciones
         localStorage.setItem("paletaGuardada", JSON.stringify(paletaParaGuardar)); // loclaStorage; guarda en el navegador, JSON.stringify traduce los colores a texto para guardarlos
-        mensaje.textContent= "¡Paleta guardada correctamente!";
+        mostrarMensaje("¡Paleta guardada correctamente!");
     } catch (error){
-        mensaje.textContent="No se pudo guardar la paleta";}
+        mostrarMensaje("No se pudo guardar la paleta");}
     });
     /* recupera la última paleta guardada */
     botonrecuperar.addEventListener("click", function(){
@@ -233,7 +239,7 @@ botonGuardar.addEventListener("click", function(){ // detecta el click y cumple 
             && Number.isFinite(color.luminosidad) // comprueba que tono, saturación y luminosidad sean números finitos
          );
          if (!esValida){ // si la paleta no pasa esa comprobación, arroja ese msj
-            mensaje.textContent="La paleta guardada no es compatible. Guarda una nueva";
+            mostrarMensaje("La paleta guardada no es compatible. Guarda una nueva");
             return;
          }
          paletaActual= paletaGuardada.map(color => ({ // se reemplaza la paletaActual por los colores recuperados
@@ -244,9 +250,9 @@ botonGuardar.addEventListener("click", function(){ // detecta el click y cumple 
          }));
          selectorCantidad.value= String(paletaActual.length); // Ajusta el selector a la cantidad de colores recuperados. Por ejemplo, si guardaste seis colores, selecciona 6
          mostrarPaleta(); // Ejecuta tu función para dibujar los colores recuperados en la página
-         mensaje.textContent= "¡Paleta recuperada correctamente!";
+            mostrarMensaje("¡Paleta recuperada correctamente!");
         } catch(error){
-            mensaje.textContent="No se pudo recuperar la paleta";
+            mostrarMensaje("No se pudo recuperar la paleta");
         }
     });
 
