@@ -194,3 +194,59 @@ for (let i = 0; i < 6; i++) {
 
 mostrarPaleta();
 
+const botonGuardar= document.getElementById("guardar");
+const botonrecuperar= document.getElementById("recuperar");
+
+/* guardar los colores actuales */
+botonGuardar.addEventListener("click", function(){ // detecta el click y cumple la función de guardar
+    const paletaParaGuardar = paletaActual.map(color => ({ // map recorre los colores, genera un nuevo arreglo y los guarda
+        tono: color.tono,
+        saturación: color.saturación,
+        luminosidad: color.luminosidad
+
+    }));
+
+    try{ // try significa trata de ejecutar estas intrucciones
+        localStorage.setItem("paletaGuardada", JSON.stringify(paletaParaGuardar)); // loclaStorage; guarda en el navegador, JSON.stringify traduce los colores a texto para guardarlos
+        mensaje.textContent= "¡Paleta guardada correctamente!";
+    } catch (error){
+        mensaje.textContent="No se pudo guardar la paleta";}
+    });
+    /* recupera la última paleta guardada */
+    botonrecuperar.addEventListener("click", function(){
+        try{
+        const datosGuardados= localStorage.getItem("paletaGuardada");
+        if (!datosGuardados){
+            mensaje.textContent="Todavía no hay una paleta guardada";
+            return;
+        }
+         const paletaGuardada = JSON.parse(datosGuardados);
+
+         // compueba que los datos guardados sean validos
+         const esValida=Array.isArray(paletaGuardada) // comprueba que sea un arreglo
+         && paletaGuardada.length > 0 // comprueba que tenga un color al menos
+         && paletaGuardada.every(color => // comprueba que todos los colores cumplan las condiciones
+            color !== null // comprueba que el color no sea un valor vacío llamado null
+            && typeof color === "object" // comprueba que sea un objeto donde podamos leer sus propiedades
+            && Number.isFinite(color.tono) // && significa que además de aquellas, también debe cumplir con estas
+            && Number.isFinite(color.saturación)
+            && Number.isFinite(color.luminosidad) // comprueba que tono, saturación y luminosidad sean números finitos
+         );
+         if (!esValida){ // si la paleta no pasa esa comprobación, arroja ese msj
+            mensaje.textContent="La paleta guardada no es compatible. Guarda una nueva";
+            return;
+         }
+         paletaActual= paletaGuardada.map(color => ({ // se reemplaza la paletaActual por los colores recuperados
+            tono: color.tono,
+            saturación: color.saturación,
+            luminosidad: color.luminosidad,
+            anclado: false  // anclado: false indica que cada color empieza sin anclar, de modo que puede cambiar cuando pulses Generar
+         }));
+         selectorCantidad.value= String(paletaActual.length); // Ajusta el selector a la cantidad de colores recuperados. Por ejemplo, si guardaste seis colores, selecciona 6
+         mostrarPaleta(); // Ejecuta tu función para dibujar los colores recuperados en la página
+         mensaje.textContent= "¡Paleta recuperada correctamente!";
+        } catch(error){
+            mensaje.textContent="No se pudo recuperar la paleta";
+        }
+    });
+
