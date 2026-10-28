@@ -217,6 +217,15 @@ label[for="formato"]{
     transform: translateY(-2px);
 }
 
+#formato, #cantidad{
+    background-color: hsl(300, 33%, 99%);
+    border: 1px solid #5c1953;
+    color: black;
+    padding: 6px 9px;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
 /* Resalta los controles al navegar con el teclado */
 #generar:focus-visible,
 #guardar:focus-visible,
