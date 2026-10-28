@@ -119,7 +119,7 @@ Así sucesivamente hasta que creas tu paleta de color perfecta a tu gusto o util
   5. posterios a estos cambios podemos continuar con la configuraciones de los botones de guardar paleta y recuperar paleta
  [respuesta del prompt 9](img/IA/reestructura-pag.png)
 
- ### consulta 
+ ### consulta 10
  **Prompt utilizado**
  Quiero agregarle estilo y dimensiones al boton de guarda, pero no se genera los cambios. Me puedes decir qué paso me salté o pasé por alto
 .botonguardar{
@@ -130,39 +130,39 @@ Así sucesivamente hasta que creas tu paleta de color perfecta a tu gusto o util
     border-radius: 8px;
     cursor: pointer;
 }
-[respuesta del prompt](img/IA/dimensiones-btnguardar.png)
+[respuesta del prompt 10](img/IA/dimensiones-btnguardar.png)
 
-### consulta 
+### consulta 11
 **Prompt utilizado**
 Este cambio en la estetica afectaría el foco de visibilidad, ni los contrates?. qué recomeindas?
-[respuesta del prompt](img/IA/foco-visible.png)
+[respuesta del prompt 11](img/IA/foco-visible.png)
 
 ### Generación de colores 
-### Consulta 10
+### Consulta 12
 **Prompt utilizado:**
 ¿Cuál es de las dos opciones para usarlo en background de los colores? Es que tengo dos opciones para el proyecto. El RGB y el HSL. ¿Cuál considerarías que es mejor para hacer la paleta?. Me dieron dos opciones para hacer o estructurar la paleta de colores. qué es RGB y HSL ¿Cuál es de las dos es mejor?
-[respuesta del prompt 10](img/IA/consulta-HSL-RGB.png)
+[respuesta del prompt 12](img/IA/consulta-HSL-RGB.png)
 
-### consulta 11 
+### consulta 13 
 **Prompt utilizado**
 Estoy presentanto un problema con la pagina. Se mantiene la misma paleta de colores, pero al carmbiaral formato HEX los codigo que aparecen son todos iguales y en la . Cómo puedo solucionar este error?
-[respuesta del prompt 11](img/IA/Error-HEX.png)
+[respuesta del prompt 13](img/IA/Error-HEX.png)
 
 ### Consultas sobre conceptos, métodos y funciones 
-  ## Consulta 9
+  ## Consulta 14
   **Prompt utilizado:**
   ¿Puedes explicar con palabras claras y sencilla lo que significaría,  Para qué sirve el Return en, como la funciones?
-  [respuesta del prompt 9](img/IA/consulta-return.png)
+  [respuesta del prompt 14](img/IA/consulta-return.png)
 
- ### consulta 10
+ ### consulta 15
   **Prompt utilizado:**
   Me puedes explicar de forma más didáctica el método for each en la función 
-  [respuesta del prompt 10](img/IA/consulta-metodo-forEach.png)
+  [respuesta del prompt 15](img/IA/consulta-metodo-forEach.png)
 
- ### consulta 11
+ ### consulta 16
   **Prompt utilizado:**
   Me puedes explicar cómo funciona el Math random
-  [respuesta del prompt 11](img/IA/consulta-Math-random.png)
+  [respuesta del prompt 16](img/IA/consulta-Math-random.png)
 
 
 
