@@ -3,22 +3,22 @@ let paletaActual=[]; // Este arreglo será donde conservaremos los colores y su 
 function crearDatosColor(){ // se obtiene un objeto: un conjunto de datos que describe un color
     return{
         tono: Math.floor(Math.random() * 360),
-        saturacion: 70,
+        saturación: 70,
         luminosidad: 50,
         anclado: false
     }
 }
 function obtenerHSL(color){
-    return `hsl(${color.tono}, {color.saturación}%, {color.luminosidad}%)`; 
+    return `hsl(${color.tono}, ${color.saturación}%, ${color.luminosidad}%)`; 
 }
 /* color.tono significa: “lee la propiedad tono del objeto color”. Lo mismo ocurre con la saturación y la luminosidad.*/
 
 function obtenerHEX(color){ // se prepara los valores, expresando en grados,
-    const s= color.saturacion/100; // se divide los porcentajes entre 100 porque la fórmula trabaja con valores de 0 a 1
-    const h= color.tono;
+    const h= color.tono; // se divide los porcentajes entre 100 porque la fórmula trabaja con valores de 0 a 1
+    const s= color.saturación/100;
     const l= color.luminosidad/100;
 
-    const a= s* Math.min(1,1 - 1); // Math.min() elige el menor de los valores. 
+    const a= s* Math.min(1, 1 - 1); // Math.min() elige el menor de los valores. 
     function convertirCanal(n){ //a determina cuánto pueden alejarse los componentes rojo, verde y azul de la luminosidad base.
         const k= (n + h/ 30)%12;
         const canal= 1 - a * Math.max( // Un canal es la cantidad de rojo, verde o azul que compone el color
@@ -27,7 +27,7 @@ function obtenerHEX(color){ // se prepara los valores, expresando en grados,
         ); 
         return Math.round(canal * 255)
         .toString(16)
-        .toString(2, "0");
+        .padStart(2, "0");
     }
         return "#" + convertirCanal(0)
         + convertirCanal(8)
@@ -93,108 +93,106 @@ y una variable (boton.generar) */
 
 const mensaje=document.getElementById("mensaje"); // esta variable busca el párr asignado para el msj
 
+
 function crearTarjeta(color){
     const tarjeta= document.createElement("div");
     tarjeta.classList.add("tarjeta-color");
+    tarjeta.classList.toggle("anclada", color.anclado);
 
-    const muestra= document.createElement("div");
+    const muestra = document.createElement("div");
     muestra.classList.add("muestra-color");
-    muestra.style.backgroundColor= color;
+    muestra.style.backgroundColor= obtenerHSL(color);
 
     const codigo= document.createElement("span");
-    codigo.textContent= color;
     codigo.classList.add("codigo-color");
+
+    const formato= document.getElementById("formato").value;
+    codigo.textContent= formato === "hex" ? obtenerHEX(color) : obtenerHSL(color);
+
+    const botonAnclar = document.createElement("button");
+    botonAnclar.type = "button";
+    botonAnclar.classList.add("boton-anclar");
+    botonAnclar.textContent = color.anclado ? "Desanclar" : "Anclar";
+    botonAnclar.setAttribute("aria-pressed", String(color.anclado));
+
+    botonAnclar.addEventListener("click", function() {
+        color.anclado = !color.anclado;
+
+        tarjeta.classList.toggle("anclada", color.anclado);
+        botonAnclar.textContent = color.anclado ? "Desanclar" : "Anclar";
+        botonAnclar.setAttribute("aria-pressed", String(color.anclado));
+    });
+
     tarjeta.appendChild(muestra);
     tarjeta.appendChild(codigo);
-
-    const botonAnclar= document.createElement("button");
-    botonAnclar.type= "button";
-    botonAnclar.textContent= "Anclar";
-    botonAnclar.classList.add("boton-anclar");
-
-    botonAnclar.setAttribute("aria-pressed", "false"); // cuando esta libre de anclar va a marcar fase
-    botonAnclar.addEventListener("click", () => {
-        const anclada= tarjeta.classList.toggle("anclada"); // toggle agg esa clase a la tarjeta, al pusar de nuevo se desactiva
-        botonAnclar.textContent= anclada? "Desanclar": "anclar"; // ? elige el texto según el estado
-        botonAnclar.setAttribute("aria-pressed", String(anclada)); // aria-pressed comunica el estado a los lectores de pantalla 
-    })
     tarjeta.appendChild(botonAnclar);
+
     return tarjeta;
 }
 
-function mostrarPaletaInicialOGenerar() { 
-    const cantidad= Number(document.getElementById("cantidad").value); 
-    const formato= document.getElementById("formato").value; 
-    const tarjetasAnteriores= Array.from(resultado.children);
-    const ancladaFuera= tarjetasAnteriores.some ((tarjeta, indice) =>{
-        return indice >= cantidad && 
-        tarjeta.classList.contains("anclada");
-    });
-    if (ancladaFuera){
-        mensaje.textContent= 
-        "Desancla las útltimas tarjetas antes de reducir la cantidad.";
-        return;
-    }
-    const colores= generarpaleta(cantidad, formato);
-    mensaje.textContent= `¡Paleta de ${cantidad} colores generada correctamente!`; // ese será el msj microfeedback
-    resultado.innerHTML=""; 
-    colores.forEach((color, indice) => { // la función flecha el mismo codigo crea cada tarjeta
-       const anterior= tarjetasAnteriores[indice];
-       if (anterior && anterior.classList.contains("anclada")){
-        resultado.appendChild(anterior);
-       } else {
-       const tarjeta= crearTarjeta(color);
-       resultado.appendChild(tarjeta);
-       }        
+const selectorCantidad = document.getElementById("cantidad");
+const selectorFormato = document.getElementById("formato");
+
+function mostrarPaleta() {
+    resultado.innerHTML = "";
+
+    paletaActual.forEach(color => {
+        resultado.appendChild(crearTarjeta(color));
     });
 }
 
-// Ejecuta la función cuando haces clic en el botón.
-botongenerar.addEventListener("click", mostrarPaletaInicialOGenerar);
+botongenerar.addEventListener("click", function() {
+    paletaActual = paletaActual.map(color => {
+        return color.anclado ? color : crearDatosColor();
+    });
 
-// Ejecuta la función una vez al cargar la página.
-mostrarPaletaInicialOGenerar();
+    mostrarPaleta();
 
-/* resultado. innerHTML es para limpiar nuestro resultado (pizarra de colores), 
-para que no se vaya acomulando los colores que se vayan generando en el click anterior,
-por lo tanto el innerHTML, permite consultar o modificar el contenido del HTML,
- dejamos ese contenero vacío, como en el caso del array, para que no se desborde */  
-/*tarjeta, muestra y colores  es el elemento div que se creó; 
-classlist; permite trabajar con la clase CSS;
-.add agrega la clase 
-tajeta-color es el nombre  de la clase que se está asignando;
-este tipo de clase se puede usar ahora en CSS para agregarle estilos, bordes, tamaño, etc. */
+    mensaje.textContent =
+        `¡Paleta de ${paletaActual.length} colores generada correctamente!`;
+});
 
-// se agrega la fucnión de generar nueva cantidad de colores, sin perder el paleta genarada
-const selectorCantidad= document.getElementById("cantidad"); /* se llama el elemento cantidad y se guarda en el selectorCantidad */
+selectorCantidad.addEventListener("change", function() {
+    const cantidad = Number(selectorCantidad.value);
 
-selectorCantidad.addEventListener("change", function(){ /* evento que detecta en cambio de cantidad */
-    const cantidad= Number(selectorCantidad.value); /*consulta por el nro y entrega el nro seleccionado por el cliente */
-    const formato= document.getElementById("formato").value; /* consulta sobre el formato seleccionado */
-    const tarjetasActuales= Array.from(resultado.children); /* resultado.children obtiene las tarjetas que ya están dentro del contenedor. Array.from() las convierte en un arreglo para poder revisarlas con métodos como .some().*/
+    const ancladaFuera = paletaActual.some((color, indice) => {
+        return indice >= cantidad && color.anclado;
+    });
 
-    // comprobar si quiere eliminar un color o tajerta anclada
-    const ancladaFuera= tarjetasActuales.some((tarjeta, indice)=>{ /* some comprueba si se cumple las 2 condicones; esta fuera de la cantidad que se quiere conserva y si está anclada */
-        return indice >= cantidad && /* la && significa que ambas condiciones deben cumplirse */
-            tarjeta.classList.contains("anclada");
-    })
+    if (ancladaFuera) {
+        mensaje.textContent =
+            "Desancla las últimas tarjetas antes de reducir la cantidad.";
 
-    if(ancladaFuera){ /* aviso */
-        mensaje.textContent= "Desancla las últimas tarjetas antes de reducir la cantidad";
-        selectorCantidad.value = String(tarjetasActuales.length);
+        selectorCantidad.value = String(paletaActual.length);
         return;
     }
- // agregar solo los colores faltantes de la nueva cantidad seleccionada
 
-    while (resultado.children.length < cantidad){
-        const color = formato === "hex" ? generarHEX(): generarcolor(); /* Es una forma corta de decir: “Si el formato es HEX, usa generarHEX(); si no, usa generarcolor()”.*/
-        const tarjeta = crearTarjeta(color);
-        resultado.appendChild(tarjeta);
-    }
-// Quita tarjeta al final si reduce la cantidad 
-    while (resultado.children.length > cantidad){ /* Mientras haya más tarjetas que la cantidad seleccionada, elimina la última.*/
-        resultado.lastElementChild.remove();
+    while (paletaActual.length < cantidad) {
+        paletaActual.push(crearDatosColor());
     }
 
+    if (paletaActual.length > cantidad) {
+        paletaActual.length = cantidad;
+    }
+
+    mostrarPaleta();
 });
+
+selectorFormato.addEventListener("change", function() {
+    const codigos = resultado.querySelectorAll(".codigo-color");
+
+    paletaActual.forEach((color, indice) => {
+        codigos[indice].textContent = selectorFormato.value === "hex"
+            ? obtenerHEX(color)
+            : obtenerHSL(color);
+    });
+});
+
+selectorCantidad.value = "6";
+
+for (let i = 0; i < 6; i++) {
+    paletaActual.push(crearDatosColor());
+}
+
+mostrarPaleta();
 
