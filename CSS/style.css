@@ -35,6 +35,7 @@ main h2 {
     font-size: 30px;
     color: hsl(240, 95%, 5%);
     margin-bottom: 20px;
+    background-color: hsl(298, 27%, 83%);
 }
 main p {
     font-size: 18px;
@@ -113,29 +114,6 @@ label[for="formato"]{
     margin: 24px auto;
 }
 
-@media (max-width: 600px){
-    .controles-paletas {
-        display: flex;
-        flex-direction: column;  
-        align-items: stretch;
-        gap: 12px;
-        max-width: 320px;
-        margin: 20px auto;
-        padding: 0 16px;
-    }
-    .controles-paletas label,
-    .controles-paletas select,
-    .controles-paletas button {
-        margin: 0;
-    }
-
-    .controles-paletas select,
-    .controles-paletas button{
-        padding: 10px;
-        font-size: 16px;
-    }
-
-}
 .tarjeta-color {
     height: auto;
     display: flex;
@@ -180,14 +158,7 @@ label[for="formato"]{
     transform: translateY(-2px);
 }
 
-/* desactiva el movimiento para quienes tienen activada la opción de reducir animaciones en su tlf*/
-@media (prefers-reduced-motion: reduce) {
-    #generar,
-    .boton-anclar {
-        transition: none;
-        transform: none;
-    }
-}
+
 .footer{
     margin-top: 50px;
     padding: 25px 20px;
@@ -228,11 +199,66 @@ label[for="formato"]{
 }
 #guardar, #recuperar{
     background-color: hsl(300, 33%, 99%);
-    outline: 1px solid #5c1953;
+    border: 1px solid #5c1953;
     color: black;
     padding: 8px 10px;
     font-size: 16px;
-    border: none;
     border-radius: 8px;
     cursor: pointer;
+}
+
+#guardar, #recuperar{
+    transition: transform 0.2s ease;
+}
+
+#guardar:hover, #recuperar:hover{
+    transform: translateY(-2px);
+}
+
+/* Resalta los controles al navegar con el teclado */
+#generar:focus-visible,
+#guardar:focus-visible,
+#recuperar:focus-visible,
+.boton-anclar:focus-visible,
+.controles-paletas select:focus-visible {
+    outline: 3px solid #5c1953;
+    outline-offset: 3px;
+}
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 600px){
+    .controles-paletas {
+        display: flex;
+        flex-direction: column;  
+        align-items: stretch;
+        gap: 12px;
+        max-width: 320px;
+        margin: 20px auto;
+        padding: 0 16px;
+    }
+    .controles-paletas label,
+    .controles-paletas select,
+    .controles-paletas button {
+        margin: 0;
+    }
+
+    .controles-paletas select,
+    .controles-paletas button{
+        padding: 10px;
+        font-size: 16px;
+    }
+}
+
+/* desactiva el movimiento para quienes tienen activada la opción de reducir animaciones en su tlf*/
+@media (prefers-reduced-motion: reduce) {
+    #generar,
+    #guardar,
+    #recuperar,
+    .boton-anclar {
+        transition: none;
+    }
+        #generar:hover,
+        #guardar:hover,
+        #recuperar:hover {
+            transform: none;
+    }
 }
