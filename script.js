@@ -18,10 +18,10 @@ function obtenerHEX(color){ // se prepara los valores, expresando en grados,
     const s= color.saturación/100;
     const l= color.luminosidad/100;
 
-    const a= s* Math.min(1, 1 - 1); // Math.min() elige el menor de los valores. 
+    const a= s* Math.min(l, 1 - l); // Math.min() elige el menor de los valores. 
     function convertirCanal(n){ //a determina cuánto pueden alejarse los componentes rojo, verde y azul de la luminosidad base.
         const k= (n + h/ 30)%12;
-        const canal= 1 - a * Math.max( // Un canal es la cantidad de rojo, verde o azul que compone el color
+        const canal= l - a * Math.max( // Un canal es la cantidad de rojo, verde o azul que compone el color
             -1,                       // Math.max Calcular la intensidad de ese canal
             Math.min(k- 3,9 -k,1)
         ); 
@@ -182,9 +182,7 @@ selectorFormato.addEventListener("change", function() {
     const codigos = resultado.querySelectorAll(".codigo-color");
 
     paletaActual.forEach((color, indice) => {
-        codigos[indice].textContent = selectorFormato.value === "hex"
-            ? obtenerHEX(color)
-            : obtenerHSL(color);
+        codigos[indice].textContent = selectorFormato.value === "hex" ? obtenerHEX(color) : obtenerHSL(color);
     });
 });
 
