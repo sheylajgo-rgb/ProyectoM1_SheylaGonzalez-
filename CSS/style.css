@@ -81,6 +81,7 @@ main p {
     background-color: hsl(300, 59%, 68%);
     color: black;
     padding: 8px 10px;
+    font-size: 16px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -224,4 +225,14 @@ label[for="formato"]{
 .footer a:focus-visible {
     outline: 2px solid currentColor;
     outline-offset: 4px;
+}
+#guardar, #recuperar{
+    background-color: hsl(300, 33%, 99%);
+    outline: 1px solid #5c1953;
+    color: black;
+    padding: 8px 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
 }
