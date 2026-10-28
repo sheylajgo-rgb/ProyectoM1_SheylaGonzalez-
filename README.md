@@ -120,10 +120,15 @@ Así sucesivamente hasta que creas tu paleta de color perfecta a tu gusto o util
  [respuesta del prompt 9](img/IA/reestructura-pag.png)
 
 ### Generación de colores 
-### Consulta 8
+### Consulta 10
 **Prompt utilizado:**
 ¿Cuál es de las dos opciones para usarlo en background de los colores? Es que tengo dos opciones para el proyecto. El RGB y el HSL. ¿Cuál considerarías que es mejor para hacer la paleta?. Me dieron dos opciones para hacer o estructurar la paleta de colores. qué es RGB y HSL ¿Cuál es de las dos es mejor?
-[respuesta del prompt 8](img/IA/consulta-HSL-RGB.png)
+[respuesta del prompt 10](img/IA/consulta-HSL-RGB.png)
+
+### consulta 11 
+**Prompt utilizado**
+Estoy presentanto un problema con la pagina. Se mantiene la misma paleta de colores, pero al carmbiaral formato HEX los codigo que aparecen son todos iguales y en la . Cómo puedo solucionar este error?
+[respuesta del prompt 11](img/IA/Error-HEX.png)
 
 ### Consultas sobre conceptos, métodos y funciones 
   ## Consulta 9
