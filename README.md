@@ -119,6 +119,19 @@ Así sucesivamente hasta que creas tu paleta de color perfecta a tu gusto o util
   5. posterios a estos cambios podemos continuar con la configuraciones de los botones de guardar paleta y recuperar paleta
  [respuesta del prompt 9](img/IA/reestructura-pag.png)
 
+ ### consulta 
+ **Prompt utilizado**
+ Quiero agregarle estilo y dimensiones al boton de guarda, pero no se genera los cambios. Me puedes decir qué paso me salté o pasé por alto
+.botonguardar{
+    background-color: hsl(300, 59%, 68%);
+    color: black;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+[respuesta del prompt](img/IA/dimensiones-btnguardar.png)
+
 ### Generación de colores 
 ### Consulta 10
 **Prompt utilizado:**
