@@ -132,6 +132,11 @@ Así sucesivamente hasta que creas tu paleta de color perfecta a tu gusto o util
 }
 [respuesta del prompt](img/IA/dimensiones-btnguardar.png)
 
+### consulta 
+**Prompt utilizado**
+Este cambio en la estetica afectaría el foco de visibilidad, ni los contrates?. qué recomeindas?
+[respuesta del prompt](img/IA/foco-visible.png)
+
 ### Generación de colores 
 ### Consulta 10
 **Prompt utilizado:**
