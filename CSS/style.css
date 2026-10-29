@@ -226,7 +226,7 @@ label[for="formato"]{
     font-size: 16px;
     border-radius: 8px;
 }
-.boton-recuperar, .boton-eliminar{
+.boton-recuperar{
     background-color: hsl(300, 33%, 99%);
     border: 1px solid #5c1953;
     color: black;
@@ -234,6 +234,17 @@ label[for="formato"]{
     font-size: 16px;
     border-radius: 8px;
     cursor: pointer;
+}
+.boton-eliminar{
+    background-color: hsl(300, 59%, 68%);
+    border: 1px solid #5c1953;
+    color: black;
+    margin-left: 12px;
+    padding: 6px 9px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+
 }
 
 
@@ -250,6 +261,26 @@ label[for="formato"]{
 .boton-eliminar:focus-visible{
     outline: 3px solid #5c1953;
     outline-offset: 3px;
+}
+#ver-paletas, #eliminar-paletas{
+    background-color: hsl(300, 33%, 99%);
+    border: 1px solid #5c1953;
+    color: black;
+    padding: 6px 9px;
+    margin-left: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+#ver-paletas:focus-visible, #eliminar-paletas:focus-visible{
+     outline: 3px solid #5c1953;
+    outline-offset: 3px;
+}
+#ver-paletas, #eliminar-paletas{
+    transition: transform 0.2s ease;
+}
+#ver-paletas:hover, #eliminar-paletas:hover{
+    transform: translateY(-2px);
 }
 /* Ajuste para pantallas pequeñas */
 @media (max-width: 600px){

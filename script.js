@@ -307,7 +307,7 @@ botonGuardar.addEventListener("click", function(){
         }
     });
     
-    function mostrarHistoria(){ // limpia el contenedor y dibuja las paletas guardadas
+    function mostrarHistorial(){ // limpia el contenedor y dibuja las paletas guardadas
         historialPaletas.innerHTML="";
 
         const historial = leerHistorial();
@@ -328,7 +328,7 @@ botonGuardar.addEventListener("click", function(){
             muestras.style.gap= "4px";
             muestras.style.justifyContent="center";
             muestras.style.marginBottom = "12px";
-
+        
             paleta.colores.forEach(color =>{
                 const muestra= document.createElement("div");
                 muestra.style.backgroundColor= obtenerHSL(color);
@@ -342,7 +342,7 @@ botonGuardar.addEventListener("click", function(){
             const botonCargar= document.createElement("button"); // Al recuperarla, se carga en el generador sin anclajes y conserva el formato HEX o HSL seleccionado.
             botonCargar.classList.add("boton-recuperar");
             botonCargar.type= "button";
-            botonCargar.textContent= "recuperar";
+            botonCargar.textContent= "Recuperar";
             botonCargar.setAttribute("aria-label", `Recuperar ${paleta.nombre}`);
 
             botonCargar.addEventListener("click", function(){
@@ -376,7 +376,7 @@ botonGuardar.addEventListener("click", function(){
                     const historialRestante= historialActual.filter(guardada=> guardada.id !== paleta.id);
                     localStorage.setItem("historialPaletas", JSON.stringify(historialRestante));
 
-                    mostrarHistoria();
+                    mostrarHistorial();
                     mostrarMensaje("Paleta eliminada del historial");
                 } catch (error){
                     console.error("Error al eliminar:", error);
@@ -394,13 +394,31 @@ botonGuardar.addEventListener("click", function(){
         }
         botonVerPaleta.addEventListener("click", function() {
             try{
-                mostrarHistoria();
+                mostrarHistorial();
             } catch (error){
                 console.error("Error al mostrar historial:", error);
                 mostrarMensaje("No se puede mostrar el historial");
 
             }
-        })        
+        });
+            botonEliminarPaletas.addEventListener("click", function(){
+            const confirmar = window.confirm("¿Quieres eliminar todas las paletas guardadas?")
+            if(!confirmar){
+                return;
+            }
+            try{
+                localStorage.setItem("historialPaletas", JSON.stringify([]));
+                // borra también el guardado del sistema anterior
+                localStorage.removeItem("paletaGuardada");
+
+                mostrarHistorial();
+                mostrarMensaje("Todas las paletas guardadas fueron eliminadas");
+            } catch(error){
+                    console.error("Error al eliminar todas:", error);
+                    mostrarMensaje("No se pudiero eliminar todas las paletas");
+                };
+            });
+         
 
 
         
