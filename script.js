@@ -202,28 +202,79 @@ mostrarPaleta();
 
 const botonGuardar= document.getElementById("guardar");
 const botonrecuperar= document.getElementById("recuperar");
+const botonVerParleta= document.getElementById("ver-paletas");
+const botonEliminarPaletas= document.getElementById("eliminar-paletas");
+const historialPaletas= document.getElementById("historial-paletas");
 
-/* guardar los colores actuales */
-botonGuardar.addEventListener("click", function(){ // detecta el click y cumple la función de guardar
-    const paletaParaGuardar = paletaActual.map(color => ({ // map recorre los colores, genera un nuevo arreglo y los guarda
-        tono: color.tono,
-        saturación: color.saturación,
-        luminosidad: color.luminosidad
+function leerHistorial(){ 
+    const datos= localStorage.getItem("historialPaletas"); // busca el historial de los elemento en el html
 
-    }));
+    if (datos !== null){
+        const historial= JSON.parse(datos); //Si todavía no hay historial, busca la paleta del sistema anterior
 
-    try{ // try significa trata de ejecutar estas intrucciones
-        localStorage.setItem("paletaGuardada", JSON.stringify(paletaParaGuardar)); // loclaStorage; guarda en el navegador, JSON.stringify traduce los colores a texto para guardarlos
-        mostrarMensaje("¡Paleta guardada correctamente!");
-    } catch (error){
-        mostrarMensaje("No se pudo guardar la paleta");}
-    });
+        if (!Array.isArray(historial)){
+            throw new Error("El historial no es valido");
+        }
+        return historial;
+    }
+    // si existe una paleta del sistema anterior, se conserva 
+    const datosAnteriores= localStorage.getItem("paletaGuardada");
+    if (datosAnteriores !== null){
+        const colores= JSON.parse(datosAnteriores);    
+        
+        const esValida= Array.isArray(colores)
+        && colores.length > 0
+        && colores.every(color =>
+            color !== null 
+            && typeof color === "object"
+            && Number.isFinite(color.tono)
+            && Number.isFinite(color.saturación)
+            && Number.isFinite(color.luminosidad)
+        );
+        if(!esValida){
+            throw new Error("La paleta anterior no es válida");
+        }
+        return[{
+            id: "paleta-anterior",
+            nombre: "Paleta anterior",
+            colores:colores 
+
+        }];
+    }
+        
+        return [];  
+    }
+
+/* guardar los colores actuales y agregar al historial de paletas generadas  */
+botonGuardar.addEventListener("click", function(){ 
+    try{
+        const historial= leerHistorial(); // busca las paletas guardadas y devuelve un arreglo. La variable historial recibe ese arreglo
+
+        const nuevaPaleta={
+            id: crypto.randomUUID(), // id: un identificador único para distinguir esa paleta
+            nombre: `Paleta ${historial.length + 1}`, //usa la cantidad de paletas del historial más uno. Si hay dos, propone “Paleta 3”
+            colores: paletaActual.map(color => ({ // map() recorre paletaActual y copia el tono, la saturación y la luminosidad de cada color
+                tono: color.tono,
+                saturación: color.saturación,
+                luminosidad: color.luminosidad
+
+            }))
+        };
+        historial.push(nuevaPaleta); // coloca la nueva paleta al final del arreglo
+
+        localStorage.setItem("historialPaletas", JSON.stringify(historial));
+        mostrarMensaje("¡Paleta agregada al historial!");
+    } catch(error){
+        mostrarMensaje("No se pudo guardar la paleta");
+        return [];
+    }
+});
     /* recupera la última paleta guardada */
     botonrecuperar.addEventListener("click", function(){
         try{
         const datosGuardados= localStorage.getItem("paletaGuardada");
         if (!datosGuardados){
-            mensaje.textContent="Todavía no hay una paleta guardada";
+            mostrarMensaje("Todavía no hay una paleta guardada");
             return;
         }
          const paletaGuardada = JSON.parse(datosGuardados);
