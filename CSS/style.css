@@ -89,6 +89,7 @@ main p {
     border-radius: 8px;
     cursor: pointer;
 }
+
 label[for="formato"]{
     margin-left: 0;
 }
@@ -225,6 +226,16 @@ label[for="formato"]{
     font-size: 16px;
     border-radius: 8px;
 }
+.boton-recuperar, .boton-eliminar{
+    background-color: hsl(300, 33%, 99%);
+    border: 1px solid #5c1953;
+    color: black;
+    padding: 6px 9px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
 
 /* Resalta los controles al navegar con el teclado */
 #generar:focus-visible,
@@ -232,6 +243,11 @@ label[for="formato"]{
 #recuperar:focus-visible,
 .boton-anclar:focus-visible,
 .controles-paletas select:focus-visible {
+    outline: 3px solid #5c1953;
+    outline-offset: 3px;
+}
+.boton-recuperar:focus-visible,
+.boton-eliminar:focus-visible{
     outline: 3px solid #5c1953;
     outline-offset: 3px;
 }

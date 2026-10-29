@@ -202,7 +202,7 @@ mostrarPaleta();
 
 const botonGuardar= document.getElementById("guardar");
 const botonrecuperar= document.getElementById("recuperar");
-const botonVerParleta= document.getElementById("ver-paletas");
+const botonVerPaleta= document.getElementById("ver-paletas");
 const botonEliminarPaletas= document.getElementById("eliminar-paletas");
 const historialPaletas= document.getElementById("historial-paletas");
 
@@ -245,7 +245,7 @@ function leerHistorial(){
         return [];  
     }
 
-/* guardar los colores actuales y agregar al historial de paletas generadas  */
+/* guarda los colores actuales y agregar al historial de paletas generadas  */
 botonGuardar.addEventListener("click", function(){ 
     try{
         const historial= leerHistorial(); // busca las paletas guardadas y devuelve un arreglo. La variable historial recibe ese arreglo
@@ -306,4 +306,104 @@ botonGuardar.addEventListener("click", function(){
             mostrarMensaje("No se pudo recuperar la paleta");
         }
     });
+    
+    function mostrarHistoria(){ // limpia el contenedor y dibuja las paletas guardadas
+        historialPaletas.innerHTML="";
+
+        const historial = leerHistorial();
+
+        if(historial.length === 0){
+            historialPaletas.textContent= "Todavía no hay paletas guardadas";
+            return;
+        }
+
+        historial.forEach(paleta =>{
+            const tarjeta= document.createElement("div");
+            const titulo= document.createElement("h3");
+            titulo.textContent= paleta.nombre;
+
+            const muestras= document.createElement("div");
+            muestras.style.display= "flex";
+            muestras.style.flexWrap="wrap";
+            muestras.style.gap= "4px";
+            muestras.style.justifyContent="center";
+            muestras.style.marginBottom = "12px";
+
+            paleta.colores.forEach(color =>{
+                const muestra= document.createElement("div");
+                muestra.style.backgroundColor= obtenerHSL(color);
+                muestra.style.width="30px";
+                muestra.style.height= "30px";
+                muestra.title= obtenerHEX(color);
+
+                muestras.appendChild(muestra);
+            });
+
+            const botonCargar= document.createElement("button"); // Al recuperarla, se carga en el generador sin anclajes y conserva el formato HEX o HSL seleccionado.
+            botonCargar.classList.add("boton-recuperar");
+            botonCargar.type= "button";
+            botonCargar.textContent= "recuperar";
+            botonCargar.setAttribute("aria-label", `Recuperar ${paleta.nombre}`);
+
+            botonCargar.addEventListener("click", function(){
+                paletaActual= paleta.colores.map(color => ({
+                    tono: color.tono,
+                    saturación: color.saturación,
+                    luminosidad: color.saturación,
+                    anclado: false
+
+                }));
+            
+                selectorCantidad.value= String(paletaActual.length);
+                mostrarPaleta();
+                mostrarMensaje(`¡${paleta.nombre} recuperada!`);
+            
+            });
+            const botonEliminar= document.createElement("button");
+            botonEliminar.type= "button";
+            botonEliminar.textContent= "Eliminar";
+            botonEliminar.classList.add("boton-eliminar");
+            botonEliminar.setAttribute("aria-label", `Eliminar ${paleta.nombre}`);
+            
+            botonEliminar.addEventListener("click", function(){
+                const confirmar= window.confirm(`¿Quieres eliminar ${paleta.nombre}?`);
+                if (!confirmar){
+                    return;
+                }
+                try {
+                    const historialActual= leerHistorial();
+
+                    const historialRestante= historialActual.filter(guardada=> guardada.id !== paleta.id);
+                    localStorage.setItem("historialPaletas", JSON.stringify(historialRestante));
+
+                    mostrarHistoria();
+                    mostrarMensaje("Paleta eliminada del historial");
+                } catch (error){
+                    console.error("Error al eliminar:", error);
+                    mostrarMensaje("No se pudo eliminar la paleta");
+                }
+            });
+
+            tarjeta.appendChild(titulo);
+            tarjeta.appendChild(muestras);
+            tarjeta.appendChild(botonCargar);
+            tarjeta.appendChild(botonEliminar);
+            historialPaletas.appendChild(tarjeta);
+
+            });
+        }
+        botonVerPaleta.addEventListener("click", function() {
+            try{
+                mostrarHistoria();
+            } catch (error){
+                console.error("Error al mostrar historial:", error);
+                mostrarMensaje("No se puede mostrar el historial");
+
+            }
+        })        
+
+
+        
+
+    
 
