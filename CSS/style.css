@@ -326,6 +326,9 @@ label[for="formato"]{
         margin: 20px auto;
         padding: 0 16px;
     }
+    #ver-paletas{
+        margin-bottom: 16px;
+    }
     .controles-paletas label,
     .controles-paletas select,
     .controles-paletas button {
