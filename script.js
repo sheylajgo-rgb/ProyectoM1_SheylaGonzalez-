@@ -328,7 +328,7 @@ botonGuardar.addEventListener("click", function(){
             muestras.style.gap= "4px";
             muestras.style.justifyContent="center";
             muestras.style.marginBottom = "12px";
-        
+            
             paleta.colores.forEach(color =>{
                 const muestra= document.createElement("div");
                 muestra.style.backgroundColor= obtenerHSL(color);
