@@ -10,7 +10,14 @@ Es un prototipo de proyecto de diseño web que genara paletas de colores aleator
 - [HEAD](#head)
 - [BODY](#body)
 - [¿Cómo usar la pagina?](#cómo-usar-la-pagina)
-- [¿Cómo reducir la cantidad de colores?](#cómo-reducir-la-cantidad-de-colores)
+  -  [¿Cómo reducir la cantidad de colores?](#cómo-reducir-la-cantidad-de-colores)
+  - [¿Dónde puedo ver las paletas guardadas?](#donde-puedo-ver-las-paletas-guardadas)
+  - [¿Cómo puedo eliminar cada una de ella?](#cómo-puedo-eliminar-cada-una-de-ella)
+  - [¿Cómo puedo eliminar todo el historial de paletas?](#cómo-puedo-eliminar-todo-el-historial-de-paletas)
+- [Ayuda con de Inteligencia Artificial](#ayuda-con-de-inteligencia-artificial)
+  - [reoganización y diseño de la página](#reoganización-y-diseño-de-la-página)
+  - [Generación de colores](#generación-de-colores)
+  - [Consultas sobre conceptos, métodos y funciones ](#consultas-sobre-conceptos-métodos-y-funciones)
 
 ## Funciones de la página
 - Genera paletas de colores según la *cantidad* seleccionada: 6, 8 o 9 
