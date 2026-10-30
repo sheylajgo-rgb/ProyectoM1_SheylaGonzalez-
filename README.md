@@ -41,25 +41,40 @@ Contiene información y configuración de la página, es decir, como la codifica
 ## ¿Cómo usar la pagina?
 - Paso 1: abrir la pagina 👉 [Visitar ColorFly Studio](https://sheylajgo-rgb.github.io/ProyectoM1_SheylaGonzalez-/)
 - Paso 2: esperar a que cargue la página 
-- Paso 3: te diriges al selector de de cantidad de colores y escoges que cantidad de color que deseas genara, puede ser entre 6,8 o 9
-- Paso 4: selecciona el formato que deseas, puede ser entre HEX o HSL 
-- Paso 5: accionas el botón "generar paleta" 
-- Paso 6: se refleja el mensaje de "¡Paleta de 6 colores generada correctamente!", el numero del mensaje cambia según la cantidad de colores que selecciones 
-- Paso 7: ya tenemos la paleta de colores reflejada
-- paso 8: Pulsa Anclar debajo del color que quieras conservar. Para liberar ese color, pulsa Desanclar debajo de su código
-- paso 9: puedes volver a accionar el botón de "generar paleta". OJO los colores anclados se conservan y los demás se generan nuevamente. 
+- Paso 3: te diriges al selector de de cantidad de colores y escoges que cantidad de color que deseas genara, puede ser entre 6,8 o 9 [paso 3](img/Flujoapp/paso%203.png)
+- Paso 4: selecciona el formato que deseas, puede ser entre HEX o HSL [paso 4](img/Flujoapp/paso%204.png)
+- Paso 5: se refleja automatica el formato seleccioando; en este caso se seleccionó formato HEX [paso 5](img/Flujoapp/paso%205.png)
+- Paso 6: Pulsa Anclar debajo del color que quieras conservar. Para liberar ese color, pulsa Desanclar debajo de su código [paso 6](img/Flujoapp/paso%206.png)
+- paso 7: puedes volver a accionar el botón de "generar paleta". OJO los colores anclados se conservan y los demás se generan nuevamente [paso 7](img/Flujoapp/paso%207.png)
 
 ## ¿Cómo reducir la cantidad de colores?
-AVISO: Si seleccionaste la cantidad de 9 colores y quieres reducirlo a 6, fijate que no hayas anclado alguno de los tres últimas tarjetas de colores, es decir, 7, 8 o 9. Esto te impedirá generar una nueva paleta de colores.
-  por ejemplo: si seleccionaste 9 colores con formato HSL, anclaste la penúltima color de paleta y quieres reducir la cantidad a 6. Te va a arrojar el siguiente mensaje "Desancla las útltimas tarjetas antes de reducir la cantidad."
+AVISO: Si seleccionaste la cantidad de 8 colores y quieres reducirlo a 6, fijate que no hayas anclado todas las tajetas de colores. Esto te impedirá generar una nueva paleta de colores.
+  por ejemplo: si seleccionaste 8 colores con formato HSL, y anclaste 8 colores de las paletas. Deberas desanclar 2 colores para que puedas reducir la cantidad de colores. de lo contrario te arrojará este mensaje "Hay más colores anclados que la cantidad seleccionada. Desancla alguno" [aviso](img/Flujoapp/aviso.png)
 - paso 1: Desancla las tarjetas que quedarían fuera de la nueva cantidad
 - paso 2: Seleciona la cantidad de color que desees en ese momento 
-- paso 3: Selecciona el formato 
-- paso 4: Acciona el boton "generar paleta"
+- paso 3: se generará la nueva paleta de color con la cantidad selecciona, pero conservando los colores anclados[paso 3 de aviso](img/Flujoapp/Aviso-paso3.png)
+
+## ¿Dónde puedo ver las paletas guardadas?
+Puedes guardar la cantidad de paletas que desees, estas se almacena dentro de mis paletas guardadas
+  - paso 1: acciona el boton "guardar paleta"[historial de paletas, paso 1](img/Flujoapp/historial-paso1.png)
+  - paso 2: busca el boton "mis paletas guardadas" ubicada al final de la pagina y seleccionado. Allí hayaras tu paleta guardada [historial de paletas, paso 2](img/Flujoapp/historial-paso2.png)
+  En el caso de que quieras guardar más de una paletas en el historial debes:
+  - paso 3: generar una nueva paletas con 8 colores con formato HEX y darle guardar paleta
+  - paso 4: vuelve a accionar al boton "mis paletas guardadas" alli debería aprecer la nueva paletas guardada [historial de paletas, paso 4](img/Flujoapp/historial-paso4.png)
+  
+## ¿Cómo puedo eliminar cada una de ella?
+Puedes eliminar de forma individual cada paletas que guardes en el historial 
+  - paso 1: selecciona que paleta desees eliminar 
+    Por ejemplo: selecciona la paleta número 
+  - paso 2: acciona el boton "eliminar" , te va aparecer un mensaje de confirmación, escoge aceptar y ya quedará eliminada [eliminar una paleta, paso 2](img/Flujoapp/eliminarunapaleta-paso2.png)  
+  - paso 3: compruba que se haya eliminado revisando el historial de paletas [eliminar una paleta, paso 3](img/Flujoapp/eliminarunapaleta-paso3.png)
+
+## ¿Cómo puedo eliminar todo el historial de paletas?
+En caso de que desees limpiar todo el historial de paletas puedes buscar el boton "eliminar todas las paletas" 
+   - paso 1: selecciona el boton "eliminar todas las paletas" y accionalo [eliminar todas las paletas, paso 1](img/Flujoapp/eliminar-todas-las-paletas.png)
+   - paso 2: acepta en el mensaje de confirmación y listo, tú historial quedará limpio [eliminar todas las paletas, paso 2](img/Flujoapp/eliminar-todas-paso2.png)
 
 Así sucesivamente hasta que creas tu paleta de color perfecta a tu gusto o utilidad 
-
-## Capturas del funcionamiento de la app
 
 ## Ayuda con de Inteligencia Artificial 
 
