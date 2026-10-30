@@ -200,7 +200,7 @@ label[for="formato"]{
     outline: 2px solid currentColor;
     outline-offset: 4px;
 }
-#guardar, #recuperar{
+#guardar{
     background-color: hsl(300, 33%, 99%);
     border: 1px solid #5c1953;
     color: black;
@@ -210,11 +210,11 @@ label[for="formato"]{
     cursor: pointer;
 }
 
-#guardar, #recuperar{
+#guardar{
     transition: transform 0.2s ease;
 }
 
-#guardar:hover, #recuperar:hover{
+#guardar:hover{
     transform: translateY(-2px);
 }
 
@@ -251,7 +251,6 @@ label[for="formato"]{
 /* Resalta los controles al navegar con el teclado */
 #generar:focus-visible,
 #guardar:focus-visible,
-#recuperar:focus-visible,
 .boton-anclar:focus-visible,
 .controles-paletas select:focus-visible {
     outline: 3px solid #5c1953;
@@ -344,13 +343,11 @@ label[for="formato"]{
 @media (prefers-reduced-motion: reduce) {
     #generar,
     #guardar,
-    #recuperar,
-    .boton-anclar {
+   .boton-anclar{
         transition: none;
     }
         #generar:hover,
-        #guardar:hover,
-        #recuperar:hover {
+        #guardar:hover{
             transform: none;
     }
 }
