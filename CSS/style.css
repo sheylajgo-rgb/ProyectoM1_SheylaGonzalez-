@@ -282,6 +282,40 @@ label[for="formato"]{
 #ver-paletas:hover, #eliminar-paletas:hover{
     transform: translateY(-2px);
 }
+.color-guardado{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    width: 85px;
+    min-width: 0; 
+}
+.muestra-guardada{
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+}
+.codigo-guardado{
+    max-width: 100%;
+    color: black;
+    background-color: hsl(300, 33%, 99%);
+    font-size: 12px;
+    text-align: center;
+    overflow-wrap: anywhere;
+    padding: 4px;
+    border-radius: 4px;
+}
+#historial-paletas{
+    background-color:hsla(296, 80%, 90%, 0.623) ;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1100px;
+    border-radius: 12px;
+}
+/*empty significa “cuando el elemento está vacío”. Al pulsar el botón mostrarHistorial() aparece las historial junto con todo los estilos determinados*/
+#historial-paletas:empty {
+    display: none;
+}
 /* Ajuste para pantallas pequeñas */
 @media (max-width: 600px){
     .controles-paletas {
