@@ -301,10 +301,11 @@ botonGuardar.addEventListener("click", function(){
             return;
         }
         // crear una tarjeta por cada paleta 
-        historial.forEach(paleta =>{
+        historial.forEach((paleta, indice) => {
             const tarjeta= document.createElement("div");
             const titulo= document.createElement("h3");
-            titulo.textContent= paleta.nombre;
+            const nombreVisible= `Paleta ${indice + 1}`;
+            titulo.textContent= nombreVisible;
 
             const muestras= document.createElement("div");
             muestras.style.display= "flex";
@@ -337,7 +338,7 @@ botonGuardar.addEventListener("click", function(){
             botonCargar.classList.add("boton-recuperar");
             botonCargar.type= "button";
             botonCargar.textContent= "Recuperar";
-            botonCargar.setAttribute("aria-label", `Recuperar ${paleta.nombre}`);
+            botonCargar.setAttribute("aria-label", `Recuperar ${nombreVisible}`);
 
             botonCargar.addEventListener("click", function(){
                 paletaActual= paleta.colores.map(color => ({
@@ -350,17 +351,17 @@ botonGuardar.addEventListener("click", function(){
             
                 selectorCantidad.value= String(paletaActual.length);
                 mostrarPaleta();
-                mostrarMensaje(`¡${paleta.nombre} recuperada!`);
+                mostrarMensaje(`¡${nombreVisible} recuperada!`);
             
             });
             const botonEliminar= document.createElement("button");
             botonEliminar.type= "button";
             botonEliminar.textContent= "Eliminar";
             botonEliminar.classList.add("boton-eliminar");
-            botonEliminar.setAttribute("aria-label", `Eliminar ${paleta.nombre}`);
+            botonEliminar.setAttribute("aria-label", `Eliminar ${nombreVisible}`);
             
             botonEliminar.addEventListener("click", function(){
-                const confirmar= window.confirm(`¿Quieres eliminar ${paleta.nombre}?`);
+                const confirmar= window.confirm(`¿Quieres eliminar ${nombreVisible}?`);
                 if (!confirmar){
                     return;
                 }

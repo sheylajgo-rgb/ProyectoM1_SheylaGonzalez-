@@ -261,7 +261,7 @@ label[for="formato"]{
     outline: 3px solid #5c1953;
     outline-offset: 3px;
 }
-#ver-paletas, #eliminar-paletas{
+#ver-paletas{
     background-color: hsl(300, 33%, 99%);
     border: 1px solid #5c1953;
     color: black;
@@ -271,8 +271,19 @@ label[for="formato"]{
     border-radius: 8px;
     cursor: pointer;
 }
+
+#eliminar-paletas{
+    background-color: hsl(300, 59%, 68%);
+    border: 1px solid #5c1953;
+    color: black;
+    padding: 6px 9px;
+    margin-left: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
 #ver-paletas:focus-visible, #eliminar-paletas:focus-visible{
-     outline: 3px solid #5c1953;
+    outline: 3px solid #5c1953;
     outline-offset: 3px;
 }
 #ver-paletas, #eliminar-paletas{
@@ -339,6 +350,37 @@ label[for="formato"]{
     .controles-paletas button{
         padding: 10px;
         font-size: 16px;
+    }
+    /* hitorial en pantallas pequeñas */
+    #historial-paletas{
+        width: 100%;
+        max-width: 100%;
+        min-width:0;
+        padding: 12px;
+        box-sizing: border-box;
+        }
+    #historial-paletas > div{
+        min-width: 0;
+        max-width: 100%;
+        }
+    #historial-paletas .color-guardado{
+        width: 85px;
+        max-width: 100%;
+        min-width: 0;
+       }
+    #historial-paletas .muestra-guardada{
+        width: 100%;
+        box-sizing: border-box;
+    }
+    #historial-paletas .codigo-guardado{
+        display: block;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+    #historial-paletas .boton-recuperar,
+    #historial-paletas .boton-eliminar{
+        margin: 6px;
+        max-width: 100%;
     }
 }
 
