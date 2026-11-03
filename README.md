@@ -105,12 +105,11 @@ Para la bublicación de la página ColorFly Studio, se realizó a través de la 
 
 ### Actualización de la pagina 
 - Cuando hago un cambio en Visual Studio Code, guardos los cambios a través de **commit** y ejecuto el **git push** para subirlo a GitHub. 
+![commit y push en VS](img/Flujo-githubpages/commit-push.png)
 - GitHub Pages publica los cambios de la rama **main**. 
+![cambios en rama main](img/Flujo-githubpages/cambios-main.png)
 - Puedo revisar el estado del despliegue en la pestaña **Actions** del repositorio. Cuando termina, recargo la pagina con (F12) para comprobar los cambios  
-
-
-
-
+![Actions en GitHub Pages](img/Flujo-githubpages/actions.png)
 
 ## Ayuda con de Inteligencia Artificial 
 
