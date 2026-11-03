@@ -13,26 +13,60 @@ function obtenerHSL(color){
 }
 /* color.tono significa: “lee la propiedad tono del objeto color”. Lo mismo ocurre con la saturación y la luminosidad.*/
 
-function obtenerHEX(color){ // se prepara los valores, expresando en grados,
-    const h= color.tono; // se divide los porcentajes entre 100 porque la fórmula trabaja con valores de 0 a 1
-    const s= color.saturación/100;
-    const l= color.luminosidad/100;
 
-    const a= s* Math.min(l, 1 - l); // Math.min() elige el menor de los valores. 
-    function convertirCanal(n){ //a determina cuánto pueden alejarse los componentes rojo, verde y azul de la luminosidad base.
-        const k= (n + h/ 30)%12;
-        const canal= l - a * Math.max( // Un canal es la cantidad de rojo, verde o azul que compone el color
-            -1,                       // Math.max Calcular la intensidad de ese canal
-            Math.min(k- 3,9 -k,1)
-        ); 
-        return Math.round(canal * 255)
-        .toString(16)
-        .padStart(2, "0");
+    function obtenerHEX(color) {
+    const tono = color.tono;
+    const saturación = color.saturación / 100;
+    const luminosidad = color.luminosidad / 100;
+
+    // Calculamos la intensidad del color.
+    const intensidad =
+        (1 - Math.abs(2 * luminosidad - 1)) * saturación;
+
+    // Calculamos el componente que permite pasar de un color a otro.
+    const intermedio =
+        intensidad * (1 - Math.abs((tono / 60) % 2 - 1));
+
+    const ajuste = luminosidad - intensidad / 2;
+
+    let rojo = 0;
+    let verde = 0;
+    let azul = 0;
+
+    // Según el tono, asignamos los componentes del color.
+    if (tono < 60) {
+        rojo = intensidad;
+        verde = intermedio;
+    } else if (tono < 120) {
+        rojo = intermedio;
+        verde = intensidad;
+    } else if (tono < 180) {
+        verde = intensidad;
+        azul = intermedio;
+    } else if (tono < 240) {
+        verde = intermedio;
+        azul = intensidad;
+    } else if (tono < 300) {
+        rojo = intermedio;
+        azul = intensidad;
+    } else {
+        rojo = intensidad;
+        azul = intermedio;
     }
-        return "#" + convertirCanal(0)
-        + convertirCanal(8)
-        + convertirCanal(4);
-    } 
+
+    // Convertimos cada componente a un número entre 0 y 255.
+    rojo = Math.round((rojo + ajuste) * 255);
+    verde = Math.round((verde + ajuste) * 255);
+    azul = Math.round((azul + ajuste) * 255);
+
+    // Convertimos los números a hexadecimal.
+    const rojoHEX = rojo.toString(16).padStart(2, "0");
+    const verdeHEX = verde.toString(16).padStart(2, "0");
+    const azulHEX = azul.toString(16).padStart(2, "0");
+
+    return "#" + rojoHEX + verdeHEX + azulHEX;
+
+}
     // contiene la fórmula matemática de conversión. No genera otro color aleatorio: calcula el HEX correspondiente al HSL guardado
 
 function generarcolor () {
