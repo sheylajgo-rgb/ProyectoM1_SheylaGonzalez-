@@ -319,7 +319,7 @@ botonGuardar.addEventListener("click", function(){
         return [{
             id: "paleta-anterior",
             nombre: "Paleta anterior",
-            colores: "colores"
+            colores: colores
         }];
     }
 
