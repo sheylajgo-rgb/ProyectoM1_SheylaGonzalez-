@@ -294,7 +294,13 @@ botonGuardar.addEventListener("click", function(){
         }
 
 
-        return historial;
+        const historialLimpio = historial.filter(paleta => paleta?.colores !== "colores");
+
+        if (historialLimpio.length !== historial.length) {
+            localStorage.setItem("historialPaletas", JSON.stringify(historialLimpio));
+        }
+
+        return historialLimpio; 
     }
 
     // Conserva la paleta del sistema anterior, si existe.
