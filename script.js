@@ -293,6 +293,7 @@ botonGuardar.addEventListener("click", function(){
             throw new Error("El historial guardado no es válido.");
         }
 
+
         return historial;
     }
 
@@ -336,6 +337,10 @@ botonGuardar.addEventListener("click", function(){
         }
         // crear una tarjeta por cada paleta 
         historial.forEach((paleta, indice) => {
+            if  (!Array.isArray(paleta?.colores)) {
+        console.warn("Paleta con formato incompatible:", paleta);
+        return;
+        }
             const tarjeta= document.createElement("div");
             const titulo= document.createElement("h3");
             const nombreVisible= `Paleta ${indice + 1}`;
