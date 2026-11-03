@@ -430,6 +430,7 @@ botonGuardar.addEventListener("click", function(){
                 mostrarHistorial();
             } catch (error){
                 console.error("Error al mostrar historial:", error);
+                alert(error.message);
                 mostrarMensaje("No se puede mostrar el historial");
 
             }
