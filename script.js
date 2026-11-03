@@ -339,6 +339,7 @@ botonGuardar.addEventListener("click", function(){
         historial.forEach((paleta, indice) => {
             if  (!Array.isArray(paleta?.colores)) {
         console.warn("Paleta con formato incompatible:", paleta);
+        alert("Paleta " + (indice + 1) + " — colores guardados: " + JSON.stringify(paleta?.colores));
         return;
         }
             const tarjeta= document.createElement("div");
